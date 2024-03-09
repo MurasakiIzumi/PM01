@@ -22,29 +22,30 @@ public class Player_State_FastMove : IState
     public void Execute()
     {
         // “ü—Í
-        float move_input = Input.GetAxisRaw("Horizontal");
+        float move_input_Hori = Input.GetAxisRaw("Horizontal");
+        float move_input_Vert = Input.GetAxisRaw("Vertical");
 
         // Œü‚«’²®
-        if (move_input > 0 && player.dir == 4)
+        if (move_input_Hori > 0 && player.dir == 4)
         {
             player.dir = 6;
             player.spriteRenderer.flipX = false;
         }
-        if (move_input < 0 && player.dir == 6)
+        if (move_input_Hori < 0 && player.dir == 6)
         {
             player.dir = 4;
             player.spriteRenderer.flipX = true;
         }
 
         // À•WˆÚ“®ŒvZ
-        player.transform.position += new Vector3(move_input, 0, 0) * player.move_speed * 3.0f * Time.deltaTime;
+        player.transform.position += new Vector3(move_input_Hori, 0, move_input_Vert) * player.move_speed * 3.0f * Time.deltaTime;
 
-        if (Input.GetAxisRaw("Horizontal") == 0)
+        if ((Input.GetAxisRaw("Horizontal") == 0) && (Input.GetAxisRaw("Vertical") == 0))
         {
             player.timer_noInput += Time.deltaTime;
-        }
+        } 
 
-        // //yó‘Ô‘JˆÚzIdleó‘Ô‚Éi“ü—Í‚µ‚Ä‚¢‚È‚¢ŠÔ‚ªè‡’l‚ğ’´‚¦‚é‚Æj
+        //yó‘Ô‘JˆÚzIdleó‘Ô‚Éi“ü—Í‚µ‚Ä‚¢‚È‚¢ŠÔ‚ªè‡’l‚ğ’´‚¦‚é‚Æj
         if (player.timer_noInput > player.threshold_noInput)
         {
             player.ChangeState(new Player_State_Idle(player));
@@ -52,6 +53,10 @@ public class Player_State_FastMove : IState
 
         //yó‘Ô‘JˆÚzMoveó‘Ô‚É
         if ((Input.GetAxisRaw("Horizontal") != 0) && (Input.GetKey(KeyCode.LeftShift) == false))
+        {
+            player.ChangeState(new Player_State_Move(player));
+        }
+        if ((Input.GetAxisRaw("Vertical") != 0) && (Input.GetKey(KeyCode.LeftShift) == false))
         {
             player.ChangeState(new Player_State_Move(player));
         }
