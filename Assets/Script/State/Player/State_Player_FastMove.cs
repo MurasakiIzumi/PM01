@@ -38,7 +38,8 @@ public class Player_State_FastMove : IState
         }
 
         // À•WˆÚ“®ŒvZ
-        player.transform.position += new Vector3(move_input_Hori, 0, move_input_Vert) * player.move_speed * 3.0f * Time.deltaTime;
+        player.transform.position += new Vector3(move_input_Hori, 0, 0) * player.move_speed * 3.0f * Time.deltaTime;
+        player.transform.position += new Vector3(0, 0, move_input_Vert) * player.move_speed * Time.deltaTime;
 
         if ((Input.GetAxisRaw("Horizontal") == 0) && (Input.GetAxisRaw("Vertical") == 0))
         {
