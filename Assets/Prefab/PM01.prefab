@@ -244,10 +244,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 8131969228128622136}
+  bullet: {fileID: 0}
   spriteRenderer: {fileID: 0}
   animator: {fileID: 0}
+  localAngle: {x: 0, y: 0, z: 0}
   timer_noInput: 0
   threshold_noInput: 0
+  timer_nofire: 0
+  threshold_nofire: 0
 --- !u!1 &5170416796036606408
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,8 +332,6 @@ MonoBehaviour:
   part_rocketlancher: {fileID: 3124514862183802003}
   dir: 0
   move_speed: 1
-  timer_noInput: 0
-  threshold_noInput: 0
 --- !u!1 &6057992656444695496
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,8 +454,6 @@ MonoBehaviour:
   player: {fileID: 8131969228128622136}
   spriteRenderer: {fileID: 0}
   animator: {fileID: 0}
-  timer_noInput: 0
-  threshold_noInput: 0
 --- !u!1 &6776777841788991583
 GameObject:
   m_ObjectHideFlags: 0
@@ -698,10 +698,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 8131969228128622136}
+  bullet: {fileID: 0}
   spriteRenderer: {fileID: 0}
   animator: {fileID: 0}
+  localAngle: {x: 0, y: 0, z: 0}
   timer_noInput: 0
   threshold_noInput: 0
+  timer_nofire: 0
+  threshold_nofire: 0
 --- !u!1 &9193269690157480104
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,5 +828,3 @@ MonoBehaviour:
   player: {fileID: 8131969228128622136}
   spriteRenderer: {fileID: 0}
   animator: {fileID: 0}
-  timer_noInput: 0
-  threshold_noInput: 0

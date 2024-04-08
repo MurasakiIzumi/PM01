@@ -24,8 +24,6 @@ public class ControlPlayer : MonoBehaviour
     //（!）Stateに関する変数はStateのScriptで管理しないように
     //【State】移動（Move）
     public float move_speed;                                    // 移動速度
-    [HideInInspector] public float timer_noInput;           // （timer）入力していない時間
-    [HideInInspector] public float threshold_noInput;    // 入力していない時間の閾値(しきいち)
     private IState currentState;
 
     private void Awake()

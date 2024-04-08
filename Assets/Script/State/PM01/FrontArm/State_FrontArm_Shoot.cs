@@ -8,6 +8,8 @@ public class FrontArm_Shoot : IState
 {
     private ControlFrontArm frontarm;
 
+    private bool isfired;
+
     public FrontArm_Shoot(ControlFrontArm FrontArm)
     {
         this.frontarm = FrontArm;
@@ -17,11 +19,31 @@ public class FrontArm_Shoot : IState
     {
         frontarm.SetAnimation("Shoot");
         frontarm.timer_noInput = 0;                // timer reset
+        frontarm.timer_nofire = 0;                 // timer reset
+        isfired=false;
     }
 
     public void Execute()
     {
+        //弾を発射
+        if (isfired == false)
+        {
+            frontarm.SetBullet();
+            isfired = true;
+        }
+
+        if (frontarm.timer_nofire > frontarm.threshold_nofire)
+        {
+            isfired = false;
+            frontarm.timer_nofire = 0;
+        }
+
         //タイマー更新
+        if (isfired == true)
+        {
+            frontarm.timer_nofire += Time.deltaTime;
+        }
+
         if (Input.GetKey(KeyCode.J) == false)
         {
             frontarm.timer_noInput += Time.deltaTime;

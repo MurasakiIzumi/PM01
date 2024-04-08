@@ -6,31 +6,53 @@ using UnityEngine.UIElements;
 
 public class BackArm_Shoot : IState
 {
-    private ControlBackArm backtarm;
+    private ControlBackArm backarm;
+
+    private bool isfired;
 
     public BackArm_Shoot(ControlBackArm BackArm)
     {
-        this.backtarm = BackArm;
+        this.backarm = BackArm;
     }
 
     public void Enter()
     {
-        backtarm.SetAnimation("Shoot");
-        backtarm.timer_noInput = 0;                // timer reset
+        backarm.SetAnimation("Shoot");
+        backarm.timer_noInput = 0;                // timer reset
+        backarm.timer_nofire = 0.125f;                 // timer reset
+        isfired = true;
     }
 
     public void Execute()
     {
+        //’e‚ð”­ŽË
+        if (isfired == false)
+        {
+            backarm.SetBullet();
+            isfired = true;
+        }
+
+        if (backarm.timer_nofire > backarm.threshold_nofire)
+        {
+            isfired = false;
+            backarm.timer_nofire = 0;
+        }
+
         //ƒ^ƒCƒ}[XV
+        if (isfired == true)
+        {
+            backarm.timer_nofire += Time.deltaTime;
+        }
+
         if (Input.GetKey(KeyCode.J) == false)
         {
-            backtarm.timer_noInput += Time.deltaTime;
+            backarm.timer_noInput += Time.deltaTime;
         }
 
         //yó‘Ô‘JˆÚzIdleó‘Ô‚É
-        if (backtarm.timer_noInput > backtarm.threshold_noInput)
+        if (backarm.timer_noInput > backarm.threshold_noInput)
         {
-            backtarm.ChangeState(new BackArm_Idle(backtarm));
+            backarm.ChangeState(new BackArm_Idle(backarm));
         }
     }
 
