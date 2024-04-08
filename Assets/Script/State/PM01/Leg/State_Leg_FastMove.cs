@@ -39,7 +39,7 @@ public class Leg_FastMove : IState
 
         // 座標移動計算
         leg.player.transform.position += new Vector3(move_input_Hori, 0, 0) * leg.player.move_speed * 3.0f * Time.deltaTime;
-        leg.player.transform.position += new Vector3(0, 0, move_input_Vert) * leg.player.move_speed * Time.deltaTime;
+        leg.player.transform.position += new Vector3(0, 0, move_input_Vert) * leg.player.move_speed * 2.0f * Time.deltaTime;
 
         //タイマー更新
         if ((Input.GetAxisRaw("Horizontal") == 0) && (Input.GetAxisRaw("Vertical") == 0))
