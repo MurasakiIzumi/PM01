@@ -24,9 +24,26 @@ public class LaserGun_Shoot : IState
         // アニメーションプレイ状態を取得
         var state = lasergun.animator.GetCurrentAnimatorStateInfo(0);
 
+        // レーザー発射
+        if(state.normalizedTime>=0.75f)
+        {
+            if (lasergun.isfired == false)
+            {
+                lasergun.SetLaser();
+                lasergun.isfired = true;
+            }
+        }
+
+        //　タイマー更新
+        if (lasergun.isfired == true)
+        {
+            lasergun.timer_nofire += Time.deltaTime;
+        }
+
         //【状態遷移】Idle状態に
         if (state.normalizedTime >= 1.0f)
         {
+
             lasergun.ChangeState(new LaserGun_Idle(lasergun));
         }
     }

@@ -16,20 +16,32 @@ public class Body_LaserShoot : IState
     public void Enter()
     {
         body.SetAnimation("LaserShoot");
-        body.timer_noInput = 0;                // timer reset
     }
 
     public void Execute()
     {
-        //タイマー更新
-        if (Input.GetKey(KeyCode.L) == false)
+        // アニメーションプレイ状態を取得
+        var state = body.animator.GetCurrentAnimatorStateInfo(0);
+
+        // レーザー発射
+        if (state.normalizedTime >= 0.75f)
         {
-            body.timer_noInput += Time.deltaTime;
+            if (body.isfired == false)
+            {
+                body.isfired = true;
+            }
+        }
+
+        //　タイマー更新
+        if (body.isfired == true)
+        {
+            body.timer_nofire += Time.deltaTime;
         }
 
         //【状態遷移】Idle状態に
-        if (body.timer_noInput > body.threshold_noInput)
+        if (state.normalizedTime >= 1.0f)
         {
+
             body.ChangeState(new Body_Idle(body));
         }
     }

@@ -20,10 +20,25 @@ public class Body_Idle : IState
 
     public void Execute()
     {
+        // ƒ^ƒCƒ}[XV
+        if (body.isfired == true)
+        {
+            body.timer_nofire += Time.deltaTime;
+        }
+
+        if (body.timer_nofire > body.threshold_nofire)
+        {
+            body.isfired = false;
+            body.timer_nofire = 0;
+        }
+
         //yó‘Ô‘JˆÚzShootó‘Ô‚É
         if (Input.GetKey(KeyCode.L) == true)
         {
-            body.ChangeState(new Body_LaserShoot(body));
+            if (body.isfired == false)
+            {
+                body.ChangeState(new Body_LaserShoot(body));
+            }
         }
 
         //yó‘Ô‘JˆÚzFastMoveó‘Ô‚É

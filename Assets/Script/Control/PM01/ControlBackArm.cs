@@ -73,12 +73,12 @@ public class ControlBackArm : MonoBehaviour
         if (player.dir == 6)
         {
             firedis.x = 1.7f;
-            localAngle = new Vector3(0.0f, 0.0f, 0.0f);
+            localAngle = new Vector3(13.0f, 0.0f, 0.0f);
         }
         else if (player.dir == 4)
         {
             firedis.x = -1.7f;
-            localAngle = new Vector3(0.0f, 0.0f, 180.0f);
+            localAngle = new Vector3(13.0f, 0.0f, 180.0f);
         }
 
         firepos = player.transform.position + firedis;

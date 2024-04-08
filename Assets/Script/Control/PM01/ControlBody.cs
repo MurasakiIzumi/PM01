@@ -16,6 +16,9 @@ public class ControlBody : MonoBehaviour
 
     [HideInInspector] public float timer_noInput;            // （timer）入力していない時間
     [HideInInspector] public float threshold_noInput;        // 入力していない時間の閾値(しきいち)
+    [HideInInspector] public bool isfired;
+    [HideInInspector] public float timer_nofire;             // （timer）射撃の間
+    [HideInInspector] public float threshold_nofire;         // 射撃の間の閾値(しきいち)
 
     private IState currentState;
 
@@ -31,6 +34,9 @@ public class ControlBody : MonoBehaviour
 
         timer_noInput = 0;
         threshold_noInput = 0.1f;
+        isfired = false;
+        timer_nofire = 0;
+        threshold_nofire = 3.0f;
     }
 
     void Update()

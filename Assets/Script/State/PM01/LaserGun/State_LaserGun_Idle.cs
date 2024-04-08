@@ -20,10 +20,25 @@ public class LaserGun_Idle : IState
 
     public void Execute()
     {
+        // タイマー更新
+        if (lasergun.isfired == true)
+        {
+            lasergun.timer_nofire += Time.deltaTime;
+        }
+
+        if (lasergun.timer_nofire > lasergun.threshold_nofire)
+        {
+            lasergun.isfired = false;
+            lasergun.timer_nofire = 0;
+        }
+
         //【状態遷移】Shoot状態に
         if (Input.GetKey(KeyCode.L) == true)
         {
-            lasergun.ChangeState(new LaserGun_Shoot(lasergun));
+            if (lasergun.isfired == false)
+            {
+                lasergun.ChangeState(new LaserGun_Shoot(lasergun));
+            }
         }
     }
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletControl : MonoBehaviour
+public class LaserControl : MonoBehaviour
 {
     public float speed;
 
@@ -13,7 +13,7 @@ public class BulletControl : MonoBehaviour
     void Start()
     {
         timer_live = 0;
-        threshold_live = 3.0f;
+        threshold_live = 2.0f;
         direction = new Vector3(1.0f, 0, 0);
 
         if (transform.rotation.z == 0)
@@ -31,7 +31,7 @@ public class BulletControl : MonoBehaviour
     void Update()
     {
         // 座標移動計算
-        transform.Translate(direction * speed * Time.deltaTime,Space.World);
+        transform.Translate(direction * speed * Time.deltaTime, Space.World);
 
         // タイマー更新
         timer_live += Time.deltaTime;

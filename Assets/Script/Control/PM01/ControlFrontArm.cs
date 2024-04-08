@@ -16,9 +16,9 @@ public class ControlFrontArm : MonoBehaviour
 
     [HideInInspector] public SpriteRenderer spriteRenderer;
     [HideInInspector] public Animator animator;
-    [HideInInspector] public Vector3 localAngle;             // 弾の向き
-    [HideInInspector] Vector3 firepos;                       // 弾生成位置
-    [HideInInspector] Vector3 firedis;                       // 弾生成位置との距離
+    [HideInInspector] private Vector3 localAngle;             // 弾の向き
+    [HideInInspector] private Vector3 firepos;                       // 弾生成位置
+    [HideInInspector] private Vector3 firedis;                       // 弾生成位置との距離
     [HideInInspector] public float timer_noInput;            // （timer）入力していない時間
     [HideInInspector] public float threshold_noInput;        // 入力していない時間の閾値(しきいち)
     [HideInInspector] public float timer_nofire;             // （timer）射撃の間
@@ -73,12 +73,12 @@ public class ControlFrontArm : MonoBehaviour
         if (player.dir == 6)
         {
             firedis.x = 1.7f;
-            localAngle = new Vector3(0.0f, 0.0f, 0.0f);
+            localAngle = new Vector3(13.0f, 0.0f, 0.0f);
         }
         else if (player.dir == 4)
         {
             firedis.x = -1.7f;
-            localAngle = new Vector3(0.0f, 0.0f, 180.0f);
+            localAngle = new Vector3(13.0f, 0.0f, 180.0f);
         }
 
         firepos = player.transform.position + firedis;

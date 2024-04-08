@@ -11,8 +11,17 @@ public class ControlLaserGun : MonoBehaviour
     [Header("[プレイヤー]")]
     public ControlPlayer player;
 
+    [Header("[レーザー]")]
+    public GameObject laser;
+
     [HideInInspector] public SpriteRenderer spriteRenderer;
     [HideInInspector] public Animator animator;
+    [HideInInspector] private Vector3 localAngle;             // 弾の向き
+    [HideInInspector] private Vector3 firepos;                       // 弾生成位置
+    [HideInInspector] private Vector3 firedis;                       // 弾生成位置との距離
+    [HideInInspector] public bool isfired;
+    [HideInInspector] public float timer_nofire;             // （timer）射撃の間
+    [HideInInspector] public float threshold_nofire;         // 射撃の間の閾値(しきいち)
 
     private IState currentState;
 
@@ -25,6 +34,11 @@ public class ControlLaserGun : MonoBehaviour
     void Start()
     {
         ChangeState(new LaserGun_Idle(this));
+
+        firedis = new Vector3(1.6f, 2.18f, 0);
+        isfired=false;
+        timer_nofire = 0;
+        threshold_nofire = 3.0f;
     }
 
     void Update()
@@ -51,4 +65,21 @@ public class ControlLaserGun : MonoBehaviour
         return stateInfo.IsName(animationName) && stateInfo.normalizedTime >= 1.0f;
     }
 
+    public void SetLaser()
+    {
+        if (player.dir == 6)
+        {
+            firedis.x = 1.6f;
+            localAngle = new Vector3(13.0f, 0.0f, 0.0f);
+        }
+        else if (player.dir == 4)
+        {
+            firedis.x = -1.6f;
+            localAngle = new Vector3(13.0f, 0.0f, 180.0f);
+        }
+
+        firepos = player.transform.position + firedis;
+
+        Instantiate(laser, firepos, Quaternion.Euler(localAngle));
+    }
 }

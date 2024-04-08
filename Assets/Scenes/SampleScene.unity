@@ -377,6 +377,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1510018594325653453, guid: 410c9936cdbf54b4b958cf0bf3c08670, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 247397511244440624, guid: d2e933828ca3eb54eb32c53965dd5063, type: 3}
     - target: {fileID: 2313675419670070976, guid: 410c9936cdbf54b4b958cf0bf3c08670, type: 3}
       propertyPath: bullet
       value: 
@@ -401,6 +405,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 3336794855538708060, guid: 410c9936cdbf54b4b958cf0bf3c08670, type: 3}
+      propertyPath: laser
+      value: 
+      objectReference: {fileID: 45420863786815453, guid: 116ef47c9ecb9844dba9c9e97d97d67e, type: 3}
     - target: {fileID: 5370377267113194269, guid: 410c9936cdbf54b4b958cf0bf3c08670, type: 3}
       propertyPath: move_speed
       value: 5
@@ -415,7 +423,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8131969228128622136, guid: 410c9936cdbf54b4b958cf0bf3c08670, type: 3}
       propertyPath: move_speed
-      value: 5
+      value: 7.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
