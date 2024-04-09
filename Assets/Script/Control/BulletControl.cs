@@ -6,15 +6,17 @@ public class BulletControl : MonoBehaviour
 {
     public float speed;
 
-    [HideInInspector] Vector3 direction;                // 前進方向
-    [HideInInspector] public float timer_live;         // （timer）存在時間
-    [HideInInspector] public float threshold_live;    // 存在時間の閾値(しきいち)
+    [HideInInspector] private Vector3 direction;                // 前進方向
+    [HideInInspector] private float timer_live;         // （timer）存在時間
+    [HideInInspector] private float threshold_live;    // 存在時間の閾値(しきいち)
+    [HideInInspector] private float rand;
 
     void Start()
     {
         timer_live = 0;
         threshold_live = 3.0f;
-        direction = new Vector3(1.0f, 0, 0);
+        rand = Random.Range(-0.05f, 0.05f);
+        direction = new Vector3(1.0f, rand, 0);
 
         if (transform.rotation.z == 0)
         {
