@@ -8,6 +8,9 @@ using static UnityEngine.EventSystems.EventTrigger;
 
 public class RocketContrl : MonoBehaviour
 {
+    public float speed;
+
+    [HideInInspector] public Vector3 direction;                // ëOêiï˚å¸
     [HideInInspector] public SpriteRenderer spriteRenderer;
     [HideInInspector] public Animator animator;
 
@@ -21,6 +24,15 @@ public class RocketContrl : MonoBehaviour
 
     void Start()
     {
+        if (transform.rotation.z == 0)
+        {
+            speed *= 1.0f;
+        }
+        else
+        {
+            speed *= -1.0f;
+        }
+
         ChangeState(new Rocket_Idle(this));
     }
 

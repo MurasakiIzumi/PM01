@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7491329523645381691}
   - component: {fileID: 1076263175670396027}
   - component: {fileID: 2621079290868965868}
+  - component: {fileID: 8378570706898599371}
   m_Layer: 0
   m_Name: Rocket
   m_TagString: Rocket
@@ -97,5 +98,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce5133d6f95ecd48ba54049a880f9af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 16
+  direction: {x: 0, y: 0, z: 0}
   spriteRenderer: {fileID: 0}
   animator: {fileID: 0}
+--- !u!54 &8378570706898599371
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6517052677163174798}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
