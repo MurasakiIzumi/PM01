@@ -44,7 +44,7 @@ public class TestEnemy_Move : IState
     public void Execute()
     {
         // À•WˆÚ“®ŒvZ
-        testenemy.transform.Translate(testenemy.transform.right * testenemy.speed * Time.deltaTime, Space.World);
+        testenemy.transform.Translate(testenemy.transform.forward * testenemy.speed * Time.deltaTime, Space.World);
 
         //yó‘Ô‘JˆÚz“]Œü’n“_‚É’…‚¢‚½‚çTrunó‘Ô‚É
         if (Vector3.Distance(testenemy.transform.position, targetpos) <0.1f)

@@ -30,7 +30,7 @@ public class ControlTestEnemy : MonoBehaviour
     {
         ChangeState(new TestEnemy_Idle(this));
 
-        dir = 6;
+        dir = 2;
     }
 
     void Update()

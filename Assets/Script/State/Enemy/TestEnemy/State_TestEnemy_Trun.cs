@@ -28,26 +28,26 @@ public class TestEnemy_Trun : IState
         {
             if (testenemy.dir == 2)
             {
-                targetAngle = 0.0f;
-                angle = -90.0f;
+                targetAngle = 90.0f;
+                angle = 0.0f;
                 nextdir = 6;
             }
             if (testenemy.dir == 4)
             {
-                targetAngle = 270.0f;
-                angle = 180.0f;
+                targetAngle = 0.0f;
+                angle = -90.0f;
                 nextdir = 2;
             }
             if (testenemy.dir == 6)
             {
-                targetAngle = 90.0f;
-                angle = 0.0f;
+                targetAngle = 180.0f;
+                angle = 90.0f;
                 nextdir = 8;
             }
             if (testenemy.dir == 8)
             {
-                targetAngle = 180.0f;
-                angle = 90.0f;
+                targetAngle = 270.0f;
+                angle = 180.0f;
                 nextdir = 4;
             }
         }
@@ -55,26 +55,26 @@ public class TestEnemy_Trun : IState
         {
             if (testenemy.dir == 2)
             {
-                targetAngle = 180.0f;
-                angle = 270.0f;
+                targetAngle = -90.0f;
+                angle = 0.0f;
                 nextdir = 4;
             }
             if (testenemy.dir == 4)
             {
-                targetAngle = 90.0f;
-                angle = 180.0f;
+                targetAngle = 180.0f;
+                angle = 270.0f;
                 nextdir = 8;
             }
             if (testenemy.dir == 6)
             {
-                targetAngle = -90.0f;
-                angle = 0.0f;
+                targetAngle = 0.0f;
+                angle = 90.0f;
                 nextdir = 2;
             }
             if (testenemy.dir == 8)
             {
-                targetAngle = 0.0f;
-                angle = 90.0f;
+                targetAngle = 90.0f;
+                angle = 180.0f;
                 nextdir = 6;
             }
         }

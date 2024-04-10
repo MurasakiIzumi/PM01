@@ -265,6 +265,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3980817828496435145, guid: 9cfdecbffda3806448e12cd52609e137, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1480292909}
+    - target: {fileID: 3980817828496435145, guid: 9cfdecbffda3806448e12cd52609e137, type: 3}
+      propertyPath: searchdis
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3980817828496435145, guid: 9cfdecbffda3806448e12cd52609e137, type: 3}
+      propertyPath: rotationspeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4831784761557706911, guid: 9cfdecbffda3806448e12cd52609e137, type: 3}
       propertyPath: m_Name
       value: EnemyA
@@ -396,6 +408,11 @@ MonoBehaviour:
 --- !u!4 &1233932490 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3111815412767533723, guid: 410c9936cdbf54b4b958cf0bf3c08670, type: 3}
+  m_PrefabInstance: {fileID: 1607048385}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1480292909 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5170416796036606408, guid: 410c9936cdbf54b4b958cf0bf3c08670, type: 3}
   m_PrefabInstance: {fileID: 1607048385}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1607048385
