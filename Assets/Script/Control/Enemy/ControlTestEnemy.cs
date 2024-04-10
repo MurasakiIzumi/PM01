@@ -12,6 +12,8 @@ public class ControlTestEnemy : MonoBehaviour
     public float speed;
     public float rotspd;
 
+    [Header("”š”­")] public GameObject explosion;
+
     [HideInInspector] public SpriteRenderer spriteRenderer;
     [HideInInspector] public Animator animator;
     [HideInInspector] public int dir;    // Œü‚«i2ã 4¶ 8‰º 6‰Ej
@@ -61,6 +63,7 @@ public class ControlTestEnemy : MonoBehaviour
     {
         if (hp <= 0)
         {
+            Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
     }
@@ -76,7 +79,7 @@ public class ControlTestEnemy : MonoBehaviour
         if (other.gameObject.tag == "Rocket")
         {
             hp-=2;
-            Destroy(other.gameObject);
+            other.GetComponent<RocketContrl>().DestroySelf();
         }
 
         if (other.gameObject.tag == "Laser")

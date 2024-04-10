@@ -515,8 +515,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 5
+  speed: 5
+  rotspd: 20
+  explosion: {fileID: 3283144453260788019, guid: 5d27eff2237e0b0439f08b9bc1f9f2bb, type: 3}
   spriteRenderer: {fileID: 0}
   animator: {fileID: 0}
+  dir: 0
 --- !u!1 &6539248970857122915
 GameObject:
   m_ObjectHideFlags: 0

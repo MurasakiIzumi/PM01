@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Sockets;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -10,8 +11,10 @@ public class RocketContrl : MonoBehaviour
 {
     public float speed;
 
+    [Header("îöî≠")] public GameObject explosion;
+
     [HideInInspector] public Vector3 direction;                // ëOêiï˚å¸
- public GameObject target;
+    [HideInInspector] public GameObject target;
     [HideInInspector] public SpriteRenderer spriteRenderer;
     [HideInInspector] public Animator animator;
 
@@ -63,6 +66,7 @@ public class RocketContrl : MonoBehaviour
 
     public void DestroySelf()
     {
+        Instantiate(explosion, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
 
