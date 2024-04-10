@@ -18,6 +18,8 @@ public class Rocket_Search : IState
 
     public void Enter()
     {
+        rocket.GetComponent<Collider>().enabled = true;
+
         timer = 0.0f;
         statetime = 2.0f;
         rocket.direction = new Vector3(1.0f, 0, 0);
@@ -43,10 +45,10 @@ public class Rocket_Search : IState
         // タイマー更新
         timer += Time.deltaTime;
 
-        //if (timer >= statetime)
-        //{
-        //    rocket.ChangeState(new Rocket_Search(rocket));
-        //}
+        if (timer >= statetime)
+        {
+            rocket.DestroySelf();
+        }
     }
 
     public void Exit()

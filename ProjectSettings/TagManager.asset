@@ -8,6 +8,7 @@ TagManager:
   - Rocket
   - Laser
   - Enemy
+  - Rocket(Search)
   layers:
   - Default
   - TransparentFX

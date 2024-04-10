@@ -21,7 +21,7 @@ public class Rocket_Up : IState
         rocket.GetComponent<Rigidbody>().useGravity = false;
         rocket.GetComponent<Rigidbody>().isKinematic = true;
         timer = 0.0f;
-        statetime = 0.5f;
+        statetime = 0.3f;
         if(rocket.speed>0)
         {
             rocket.direction = new Vector3(0.5f, 0.866f, 0);

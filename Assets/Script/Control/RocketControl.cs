@@ -11,6 +11,7 @@ public class RocketContrl : MonoBehaviour
     public float speed;
 
     [HideInInspector] public Vector3 direction;                // ‘Oi•ûŒü
+ public GameObject target;
     [HideInInspector] public SpriteRenderer spriteRenderer;
     [HideInInspector] public Animator animator;
 
@@ -59,4 +60,21 @@ public class RocketContrl : MonoBehaviour
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
         return stateInfo.IsName(animationName) && stateInfo.normalizedTime >= 1.0f;
     }
+
+    public void DestroySelf()
+    {
+        Destroy(this.gameObject);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Enemy")
+        {
+            target = other.gameObject;
+            this.GetComponent<BoxCollider>().enabled = false;
+            ChangeState(new Rocket_Attack(this));
+        }
+    }
+
+
 }

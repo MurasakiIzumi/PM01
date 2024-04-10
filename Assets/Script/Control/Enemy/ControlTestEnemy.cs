@@ -73,10 +73,17 @@ public class ControlTestEnemy : MonoBehaviour
             Destroy(other.gameObject);
         }
 
+        if (other.gameObject.tag == "Rocket")
+        {
+            hp-=2;
+            Destroy(other.gameObject);
+        }
+
         if (other.gameObject.tag == "Laser")
         {
             hp = 0;
         }
+
     }
 
 }
