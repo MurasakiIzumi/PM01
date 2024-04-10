@@ -20,9 +20,13 @@ public class RocketLancher_Idle : IState
 
     public void Execute()
     {
+        //ƒ^ƒCƒ}[XV
+        rocketlancher.timer_nofire += Time.deltaTime;
+
         //yó‘Ô‘JˆÚzShootó‘Ô‚É
-        if (Input.GetKey(KeyCode.K) == true)
+        if ((Input.GetKey(KeyCode.K) == true)&&rocketlancher.timer_nofire>=rocketlancher.threshold_nofire)
         {
+            rocketlancher.timer_nofire = 0.0f;
             rocketlancher.ChangeState(new RocketLancher_Shoot(rocketlancher));
         }
     }

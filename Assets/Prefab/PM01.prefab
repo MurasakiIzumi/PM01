@@ -124,6 +124,9 @@ MonoBehaviour:
   animator: {fileID: 0}
   timer_noInput: 0
   threshold_noInput: 0
+  isfired: 0
+  timer_nofire: 0
+  threshold_nofire: 0
 --- !u!1 &3000576737867536906
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,7 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 8131969228128622136}
-  bullet: {fileID: 0}
+  bullet: {fileID: 247397511244440624, guid: d2e933828ca3eb54eb32c53965dd5063, type: 3}
   spriteRenderer: {fileID: 0}
   animator: {fileID: 0}
   localAngle: {x: 0, y: 0, z: 0}
@@ -452,9 +455,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 8131969228128622136}
-  laser: {fileID: 0}
+  laser: {fileID: 45420863786815453, guid: 116ef47c9ecb9844dba9c9e97d97d67e, type: 3}
   spriteRenderer: {fileID: 0}
   animator: {fileID: 0}
+  isfired: 0
   timer_nofire: 0
   threshold_nofire: 0
 --- !u!1 &6776777841788991583
@@ -701,7 +705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 8131969228128622136}
-  bullet: {fileID: 0}
+  bullet: {fileID: 247397511244440624, guid: d2e933828ca3eb54eb32c53965dd5063, type: 3}
   spriteRenderer: {fileID: 0}
   animator: {fileID: 0}
   timer_noInput: 0
@@ -828,5 +832,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 8131969228128622136}
+  rocket: {fileID: 6517052677163174798, guid: 3bfc3db6ca581484caef9b425f2d9b26, type: 3}
   spriteRenderer: {fileID: 0}
   animator: {fileID: 0}
+  timer_nofire: 0
+  threshold_nofire: 0
