@@ -101,11 +101,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
+  smoke: {fileID: 7138436812556529481, guid: 12f30f30b1c2ebe4d9c93b2ff23d0beb, type: 3}
   explosion: {fileID: 3283144453260788019, guid: 7c115518bfcb1ca41939d12b65531af8, type: 3}
   direction: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   spriteRenderer: {fileID: 0}
   animator: {fileID: 0}
+  timer_smoke: 0
+  time_setsmoke: 0
 --- !u!54 &8378570706898599371
 Rigidbody:
   m_ObjectHideFlags: 0

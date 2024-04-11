@@ -11,12 +11,15 @@ public class RocketContrl : MonoBehaviour
 {
     public float speed;
 
+    [Header("煙幕")] public GameObject smoke;
     [Header("爆発")] public GameObject explosion;
 
     [HideInInspector] public Vector3 direction;                // 前進方向
     [HideInInspector] public GameObject target;
     [HideInInspector] public SpriteRenderer spriteRenderer;
     [HideInInspector] public Animator animator;
+    [HideInInspector] public float timer_smoke;
+    [HideInInspector] public float time_setsmoke;
 
     private IState currentState;
 
@@ -37,6 +40,9 @@ public class RocketContrl : MonoBehaviour
             speed *= -1.0f;
         }
 
+        timer_smoke = 0;
+        time_setsmoke = 0.05f;
+
         ChangeState(new Rocket_Idle(this));
     }
 
@@ -44,6 +50,16 @@ public class RocketContrl : MonoBehaviour
     {
         // 現在のステート
         currentState?.Execute();
+
+        if(timer_smoke>= time_setsmoke)
+        {
+            SetSmoke();
+            timer_smoke = 0;
+        }
+        else 
+        {
+            timer_smoke += Time.deltaTime;
+        }
     }
 
     public void ChangeState(IState newState)
@@ -70,6 +86,10 @@ public class RocketContrl : MonoBehaviour
         Destroy(this.gameObject);
     }
 
+    private void SetSmoke()
+    {
+        Instantiate(smoke, transform.position, Quaternion.identity);
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Enemy")

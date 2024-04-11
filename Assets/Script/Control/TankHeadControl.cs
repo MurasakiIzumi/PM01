@@ -21,9 +21,11 @@ public class TankHeadControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Player座標取得
         target = player.transform.position;
         target.y = ZreoY.y;
 
+        //Playerがサーチ範囲内なら狙う
         if (Vector3.Distance(this.transform.position, player.transform.position) < searchdis)
         {
             this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(target - this.transform.position), rotationspeed * Time.deltaTime);
