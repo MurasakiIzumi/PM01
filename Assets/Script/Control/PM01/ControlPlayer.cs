@@ -20,10 +20,11 @@ public class ControlPlayer : MonoBehaviour
     public ControlRocketLancher part_rocketlancher;
 
     [HideInInspector] public int dir;                           // 向き（2上 4左 8下 6右）
+    [HideInInspector] public bool flipx;
 
-    //（!）Stateに関する変数はStateのScriptで管理しないように
-    //【State】移動（Move）
-    public float move_speed;                                    // 移動速度
+   //（!）Stateに関する変数はStateのScriptで管理しないように
+   //【State】移動（Move）
+   public float move_speed;                                    // 移動速度
     private IState currentState;
 
     private void Awake()
@@ -34,6 +35,7 @@ public class ControlPlayer : MonoBehaviour
     void Start()
     {
         dir = 6;                    // 登場時の向き（右）
+        flipx=false;
     }
 
     public void SetSpriteFlip(bool flip)
@@ -48,6 +50,7 @@ public class ControlPlayer : MonoBehaviour
                 part_lasergun.spriteRenderer.flipX = true;
                 part_leg.spriteRenderer.flipX = true;
                 part_rocketlancher.spriteRenderer.flipX = true;
+                flipx = true;
 
                 this.GetComponent<BoxCollider>().center = ColliderFlip(this.GetComponent<BoxCollider>().center);
 
@@ -71,6 +74,7 @@ public class ControlPlayer : MonoBehaviour
                 part_lasergun.spriteRenderer.flipX = false;
                 part_leg.spriteRenderer.flipX = false;
                 part_rocketlancher.spriteRenderer.flipX = false;
+                flipx = false;
 
                 this.GetComponent<BoxCollider>().center = ColliderFlip(this.GetComponent<BoxCollider>().center);
 
