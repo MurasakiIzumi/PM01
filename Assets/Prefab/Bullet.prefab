@@ -148,5 +148,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 17.5
-  timer_live: 0
-  threshold_live: 0
+  damage: 1

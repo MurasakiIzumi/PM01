@@ -72,19 +72,19 @@ public class ControlTestEnemy : MonoBehaviour
     {
         if (other.gameObject.tag == "Bullet")
         {
-            hp--;
+            hp -= other.GetComponent<BulletControl>().damage;
             Destroy(other.gameObject);
         }
 
         if (other.gameObject.tag == "Rocket")
         {
-            hp-=2;
+            hp -= other.GetComponent<RocketContrl>().damage;
             other.GetComponent<RocketContrl>().DestroySelf();
         }
 
         if (other.gameObject.tag == "Laser")
         {
-            hp = 0;
+            hp -=other.GetComponent<LaserControl>().damage;
         }
 
     }

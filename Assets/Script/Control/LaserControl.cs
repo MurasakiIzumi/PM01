@@ -5,6 +5,7 @@ using UnityEngine;
 public class LaserControl : MonoBehaviour
 {
     public float speed;
+    public int damage;
 
     [HideInInspector] Vector3 direction;                // 前進方向
     [HideInInspector] public float timer_live;         // （timer）存在時間

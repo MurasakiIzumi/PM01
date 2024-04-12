@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletControl : MonoBehaviour
 {
     public float speed;
+    public int damage;
 
     [HideInInspector] private Vector3 direction;                // 前進方向
     [HideInInspector] private float timer_live;         // （timer）存在時間

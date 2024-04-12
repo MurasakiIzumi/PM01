@@ -10,6 +10,7 @@ using static UnityEngine.EventSystems.EventTrigger;
 public class RocketContrl : MonoBehaviour
 {
     public float speed;
+    public int damage;
 
     [Header("‰Œ–‹")] public GameObject smoke;
     [Header("”š”­")] public GameObject explosion;
