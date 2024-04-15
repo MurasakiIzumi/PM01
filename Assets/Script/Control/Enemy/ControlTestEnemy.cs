@@ -8,11 +8,14 @@ using static UnityEngine.EventSystems.EventTrigger;
 
 public class ControlTestEnemy : MonoBehaviour
 {
+    public int defultdir;
     public int hp;
     public float speed;
     public float rotspd;
 
     [Header("”š”­")] public GameObject explosion;
+
+    [Header("s“®”ÍˆÍ")] public Vector3 Max;
 
     [HideInInspector] public SpriteRenderer spriteRenderer;
     [HideInInspector] public Animator animator;
@@ -30,7 +33,7 @@ public class ControlTestEnemy : MonoBehaviour
     {
         ChangeState(new TestEnemy_Idle(this));
 
-        dir = 2;
+        dir = defultdir;
     }
 
     void Update()
@@ -87,6 +90,34 @@ public class ControlTestEnemy : MonoBehaviour
             hp -=other.GetComponent<LaserControl>().damage;
         }
 
+    }
+
+    public bool CheckisOutMap(Vector3 pos)
+    {
+        if (pos.x >= Max.x)
+        {
+            return false;
+        }
+
+        else if (pos.x <= Max.x*-1.0f)
+        {
+            return false;
+        }
+
+        else if(pos.z>=Max.z)
+        {
+            return false;
+        }
+
+        else if (pos.z <= Max.z * -1.0f) 
+        {
+            return false;
+        }
+
+        else
+        {
+            return true;
+        }
     }
 
 }

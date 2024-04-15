@@ -39,6 +39,11 @@ public class TestEnemy_Move : IState
 
         //ŽŸ‚Ì“]Œü•ûŒü‚ðŒˆ‚ß‚é
         nextturn = Random.Range(1, 100);
+
+        if(testenemy.CheckisOutMap(targetpos)!=true)
+        {
+            nextturn = 1;
+        }
     }
 
     public void Execute()

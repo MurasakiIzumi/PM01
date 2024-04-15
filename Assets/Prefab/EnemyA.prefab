@@ -564,10 +564,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cde076aea756f104a97d12c642896406, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defultdir: 0
   hp: 5
   speed: 5
   rotspd: 20
   explosion: {fileID: 3283144453260788019, guid: 5d27eff2237e0b0439f08b9bc1f9f2bb, type: 3}
+  Max: {x: 60, y: 0, z: 60}
   spriteRenderer: {fileID: 0}
   animator: {fileID: 0}
   dir: 0
