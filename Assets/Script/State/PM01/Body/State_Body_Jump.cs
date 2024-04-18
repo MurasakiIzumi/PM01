@@ -23,6 +23,7 @@ public class Body_Jump : IState
         body.player.isJump = true;
         Jumpspeed = body.player.move_speed;
         timer = 0;
+        body.player.Power -= 70.0f;
     }
     public void Execute()
     {

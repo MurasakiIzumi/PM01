@@ -84,5 +84,7 @@ public class ControlBackArm : MonoBehaviour
         firepos = player.transform.position + firedis;
 
         Instantiate(bullet, firepos, Quaternion.Euler(localAngle));
+
+        player.ammoleft--;
     }
 }

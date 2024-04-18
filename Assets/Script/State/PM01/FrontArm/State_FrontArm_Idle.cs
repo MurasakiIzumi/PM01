@@ -23,7 +23,10 @@ public class FrontArm_Idle : IState
         //yó‘Ô‘JˆÚzShootó‘Ô‚É
         if (Input.GetKey(KeyCode.J) == true)
         {
-            frontarm.ChangeState(new FrontArm_Shoot(frontarm));
+            if (frontarm.player.ammoright > 0)
+            {
+                frontarm.ChangeState(new FrontArm_Shoot(frontarm));
+            }
         }
     }
 

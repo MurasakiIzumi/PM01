@@ -37,7 +37,10 @@ public class LaserGun_Idle : IState
         {
             if (lasergun.isfired == false)
             {
-                lasergun.ChangeState(new LaserGun_Shoot(lasergun));
+                if (lasergun.player.Power >= 50.0f)
+                {
+                    lasergun.ChangeState(new LaserGun_Shoot(lasergun));
+                }
             }
         }
     }

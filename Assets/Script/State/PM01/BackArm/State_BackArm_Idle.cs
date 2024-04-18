@@ -23,7 +23,10 @@ public class BackArm_Idle : IState
         //yó‘Ô‘JˆÚzShootó‘Ô‚É
         if (Input.GetKey(KeyCode.J) == true)
         {
-            backarm.ChangeState(new BackArm_Shoot(backarm));
+            if (backarm.player.ammoleft > 0)
+            {
+                backarm.ChangeState(new BackArm_Shoot(backarm));
+            }
         }
     }
 

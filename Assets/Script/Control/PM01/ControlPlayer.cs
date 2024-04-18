@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using UnityEngine.UIElements;
 using static UnityEditor.Progress;
 using static UnityEngine.EventSystems.EventTrigger;
+using Image = UnityEngine.UI.Image;
 
 public class ControlPlayer : MonoBehaviour
 {
@@ -19,15 +20,36 @@ public class ControlPlayer : MonoBehaviour
     public ControlLeg part_leg;
     public ControlRocketLancher part_rocketlancher;
 
+    [Header("UI関連")]
+    public Image hpbar;
+    public Image powerbar;
+    public Text AmmoRight;
+    public Text AmmoLeft;
+    public Text AmmoRocket;
+
     [Header("跳躍高さ")] public float jumphigh;
+    [Header("移動スピード")] public float move_speed;                                    // 移動速度
+
+    [Header("HP&Power")]
+    public float HpMax;
+    [HideInInspector] public float Hp;
+    public float HpreplySpeed;
+    public float PowerMax;
+    [HideInInspector] public float Power;
+    public float PowerreplySpeed;
+
+    [Header("Ammo")]
+    public int ammobulletMax;
+    public int ammorocketMax;
+
+    [HideInInspector] public int ammoright;
+    [HideInInspector] public int ammoleft;
+    [HideInInspector] public int ammorocket;
 
     [HideInInspector] public int dir;                           // 向き（2上 4左 8下 6右）
     [HideInInspector] public bool flipx;
     [HideInInspector] public bool isJump;
 
-   //（!）Stateに関する変数はStateのScriptで管理しないように
-   //【State】移動（Move）
-   public float move_speed;                                    // 移動速度
     private IState currentState;
 
     private void Awake()
@@ -40,6 +62,51 @@ public class ControlPlayer : MonoBehaviour
         dir = 6;                    // 登場時の向き（右）
         flipx=false;
         isJump=false;
+        ammoright = ammobulletMax;
+        ammoleft = ammobulletMax;
+        ammorocket = ammorocketMax;
+    }
+
+    void Update()
+    {
+        //HP&Power関連
+        Hp += HpreplySpeed * Time.deltaTime;
+        Hp = Math.Max(0.0f, Math.Min(Hp, HpMax));
+        hpbar.fillAmount = Hp / 100.0f;
+
+        Power+=PowerreplySpeed* Time.deltaTime;
+        Power = Math.Max(0.0f, Math.Min(Power, PowerMax));
+        powerbar.fillAmount = Power / 100.0f;
+
+        //Ammo関連
+        if (ammoright > 0)
+        {
+            AmmoRight.text = "" + ammoright;
+        }
+        else
+        {
+            AmmoRight.text = "Out";
+        }
+
+        if (ammoleft > 0)
+        {
+            AmmoLeft.text = "" + ammoleft;
+        }
+        else
+        {
+            AmmoLeft.text = "Out";
+        }
+
+        if (ammorocket > 0)
+        {
+            AmmoRocket.text = "" + ammorocket;
+        }
+        else 
+        {
+            AmmoRocket.text = "Out";
+        }
+       
+
     }
 
     public void SetSpriteFlip(bool flip)

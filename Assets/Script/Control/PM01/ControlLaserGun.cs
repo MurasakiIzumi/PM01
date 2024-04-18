@@ -81,5 +81,7 @@ public class ControlLaserGun : MonoBehaviour
         firepos = player.transform.position + firedis;
 
         Instantiate(laser, firepos, Quaternion.Euler(localAngle));
+
+        player.Power -= 50.0f;
     }
 }

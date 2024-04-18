@@ -79,5 +79,7 @@ public class ControlRocketLancher : MonoBehaviour
 
         firepos = player.transform.position + firedis;
         Instantiate(rocket, firepos, localAngle);
+
+        player.ammorocket--;
     }
 }

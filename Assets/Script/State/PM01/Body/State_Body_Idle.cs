@@ -54,7 +54,10 @@ public class Body_Idle : IState
         //yó‘Ô‘JˆÚzJumpó‘Ô‚É
         if (Input.GetKeyDown(KeyCode.Space) == true)
         {
-            body.ChangeState(new Body_Jump(body));
+            if (body.player.Power >= 70.0f)
+            {
+                body.ChangeState(new Body_Jump(body));
+            }
         }
     }
 

@@ -26,8 +26,11 @@ public class RocketLancher_Idle : IState
         //yó‘Ô‘JˆÚzShootó‘Ô‚É
         if ((Input.GetKey(KeyCode.K) == true)&&rocketlancher.timer_nofire>=rocketlancher.threshold_nofire)
         {
-            rocketlancher.timer_nofire = 0.0f;
-            rocketlancher.ChangeState(new RocketLancher_Shoot(rocketlancher));
+            if (rocketlancher.player.ammorocket > 0)
+            {
+                rocketlancher.timer_nofire = 0.0f;
+                rocketlancher.ChangeState(new RocketLancher_Shoot(rocketlancher));
+            }
         }
     }
 
