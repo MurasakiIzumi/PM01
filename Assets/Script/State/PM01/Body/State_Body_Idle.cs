@@ -50,6 +50,11 @@ public class Body_Idle : IState
         {
             body.ChangeState(new Body_FastMove(body));
         }
+
+        if (Input.GetKeyUp(KeyCode.Space) == true)
+        {
+            body.ChangeState(new Body_Jump(body));
+        }
     }
 
     public void Exit()
