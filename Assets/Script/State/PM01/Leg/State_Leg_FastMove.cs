@@ -62,6 +62,12 @@ public class Leg_FastMove : IState
         {
             leg.ChangeState(new Leg_Move(leg));
         }
+
+        // ジャンプ中アニメーション調整
+        if (leg.player.isJump == true)
+        {
+            leg.SetAnimation("Idle");
+        }
     }
 
     public void Exit()

@@ -30,14 +30,17 @@ public class Leg_Idle : IState
             leg.ChangeState(new Leg_Move(leg));
         }
 
-        //yó‘Ô‘JˆÚzFastMoveó‘Ô‚É
-        if ((Input.GetAxisRaw("Horizontal") != 0) && (Input.GetKey(KeyCode.LeftShift) == true))
+        if (leg.player.isJump == false)
         {
-            leg.ChangeState(new Leg_FastMove(leg));
-        }
-        if ((Input.GetAxisRaw("Vertical") != 0) && (Input.GetKey(KeyCode.LeftShift) == true))
-        {
-            leg.ChangeState(new Leg_FastMove(leg));
+            //yó‘Ô‘JˆÚzFastMoveó‘Ô‚É
+            if ((Input.GetAxisRaw("Horizontal") != 0) && (Input.GetKey(KeyCode.LeftShift) == true))
+            {
+                leg.ChangeState(new Leg_FastMove(leg));
+            }
+            if ((Input.GetAxisRaw("Vertical") != 0) && (Input.GetKey(KeyCode.LeftShift) == true))
+            {
+                leg.ChangeState(new Leg_FastMove(leg));
+            }
         }
     }
 

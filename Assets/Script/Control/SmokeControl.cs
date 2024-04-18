@@ -9,6 +9,7 @@ public class SmokeControl : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        transform.localEulerAngles = new Vector3(13.0f, 0, 0);
     }
 
     // Update is called once per frame

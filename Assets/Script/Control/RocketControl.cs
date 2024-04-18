@@ -32,7 +32,7 @@ public class RocketContrl : MonoBehaviour
 
     void Start()
     {
-        if (transform.rotation.z == 0)
+        if (transform.rotation.y == 0)
         {
             speed *= 1.0f;
         }
@@ -52,7 +52,7 @@ public class RocketContrl : MonoBehaviour
         // 現在のステート
         currentState?.Execute();
 
-        if(timer_smoke>= time_setsmoke)
+        if (timer_smoke>= time_setsmoke)
         {
             SetSmoke();
             timer_smoke = 0;

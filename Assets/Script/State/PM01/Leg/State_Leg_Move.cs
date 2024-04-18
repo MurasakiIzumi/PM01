@@ -52,14 +52,23 @@ public class Leg_Move : IState
             leg.ChangeState(new Leg_Idle(leg));
         }
 
-        //yó‘Ô‘JˆÚzFastMoveó‘Ô‚É
-        if ((Input.GetAxisRaw("Horizontal") != 0) && (Input.GetKey(KeyCode.LeftShift) == true))
+        if (leg.player.isJump == false)
         {
-            leg.ChangeState(new Leg_FastMove(leg));
+            //yó‘Ô‘JˆÚzFastMoveó‘Ô‚É
+            if ((Input.GetAxisRaw("Horizontal") != 0) && (Input.GetKey(KeyCode.LeftShift) == true))
+            {
+                leg.ChangeState(new Leg_FastMove(leg));
+            }
+            if ((Input.GetAxisRaw("Vertical") != 0) && (Input.GetKey(KeyCode.LeftShift) == true))
+            {
+                leg.ChangeState(new Leg_FastMove(leg));
+            }
         }
-        if ((Input.GetAxisRaw("Vertical") != 0) && (Input.GetKey(KeyCode.LeftShift) == true))
+
+        // ƒWƒƒƒ“ƒv’†ƒAƒjƒ[ƒVƒ‡ƒ“’²®
+        if (leg.player.isJump == true)
         {
-            leg.ChangeState(new Leg_FastMove(leg));
+            leg.SetAnimation("Idle");
         }
     }
 

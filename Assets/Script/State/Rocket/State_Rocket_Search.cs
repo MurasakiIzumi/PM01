@@ -40,7 +40,7 @@ public class Rocket_Search : IState
         rocket.transform.Translate(rocket.direction * rocket.speed * Time.deltaTime, Space.World);
 
         // 角度計算
-        rocket.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        rocket.transform.rotation = Quaternion.AngleAxis(angle, Vector3.up);
 
         // タイマー更新
         timer += Time.deltaTime;

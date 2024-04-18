@@ -26,8 +26,10 @@ public class Body_Jump : IState
     }
     public void Execute()
     {
+        //座標計算
         body.player.transform.Translate(Vector3.up * Jumpspeed * Time.deltaTime, Space.World);
 
+        //上昇と伴いスピードダウン
         if (timer >= 0.5f)
         {
             timer = 0;
@@ -38,13 +40,26 @@ public class Body_Jump : IState
             timer += Time.deltaTime;
         }
         
+        //目標座標を更新
         target = new Vector3(body.player.transform.position.x, body.player.jumphigh, body.player.transform.position.z);
 
         if ((Vector3.Distance(body.player.transform.position, target) < 0.1f))
         {
             body.player.transform.position = target;
 
+            //【状態遷移】Fall状態に
             body.ChangeState(new Body_Fall(body,Jumpspeed));
+        }
+
+        //煙幕生成
+        if (body.timer_smoke >= body.time_setsmoke)
+        {
+            body.SetSmoke();
+            body.timer_smoke = 0;
+        }
+        else
+        {
+            body.timer_smoke += Time.deltaTime;
         }
     }
     public void Exit()

@@ -16,11 +16,11 @@ public class ControlRocketLancher : MonoBehaviour
 
     [HideInInspector] public SpriteRenderer spriteRenderer;
     [HideInInspector] public Animator animator;
-    [HideInInspector] private Vector3 localAngle;             // 弾の向き
+    [HideInInspector] private Quaternion localAngle;          // 弾の向き
     [HideInInspector] private Vector3 firepos;                // 弾生成位置
     [HideInInspector] private Vector3 firedis;                // 弾生成位置との距離
-    [HideInInspector] public float timer_nofire;             // （timer）射撃の間
-    [HideInInspector] public float threshold_nofire;         // 射撃の間の閾値(しきいち)
+    [HideInInspector] public float timer_nofire;              // （timer）射撃の間
+    [HideInInspector] public float threshold_nofire;          // 射撃の間の閾値(しきいち)
 
     private IState currentState;
 
@@ -69,16 +69,15 @@ public class ControlRocketLancher : MonoBehaviour
         if (player.dir == 6)
         {
             firedis.x = -0.8f;
-            localAngle = new Vector3(13.0f, 0.0f, 0.0f);
+            localAngle.eulerAngles=new Vector3(13.0f, 0.0f, 0.0f);
         }
         else if (player.dir == 4)
         {
             firedis.x = 0.8f;
-            localAngle = new Vector3(13.0f, 0.0f, 180.0f);
+            localAngle.eulerAngles= new Vector3(13.0f, 180.0f, 0.0f);
         }
 
         firepos = player.transform.position + firedis;
-
-        Instantiate(rocket, firepos, Quaternion.Euler(localAngle));
+        Instantiate(rocket, firepos, localAngle);
     }
 }

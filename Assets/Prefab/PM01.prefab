@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 8131969228128622136}
+  smoke: {fileID: 0}
   spriteRenderer: {fileID: 0}
   animator: {fileID: 0}
   timer_noInput: 0
@@ -127,6 +128,8 @@ MonoBehaviour:
   isfired: 0
   timer_nofire: 0
   threshold_nofire: 0
+  timer_smoke: 0
+  time_setsmoke: 0
 --- !u!1 &3000576737867536906
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,8 +337,10 @@ MonoBehaviour:
   part_lasergun: {fileID: 3336794855538708060}
   part_leg: {fileID: 9045462890821361333}
   part_rocketlancher: {fileID: 3124514862183802003}
+  jumphigh: 0
   dir: 0
   flipx: 0
+  isJump: 0
   move_speed: 7.5
 --- !u!1 &6057992656444695496
 GameObject:

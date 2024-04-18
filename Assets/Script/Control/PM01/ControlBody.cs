@@ -11,6 +11,8 @@ public class ControlBody : MonoBehaviour
     [Header("[プレイヤー]")]
     public ControlPlayer player;
 
+    [Header("煙幕")] public GameObject smoke;
+
     [HideInInspector] public SpriteRenderer spriteRenderer;
     [HideInInspector] public Animator animator;
 
@@ -19,6 +21,12 @@ public class ControlBody : MonoBehaviour
     [HideInInspector] public bool isfired;
     [HideInInspector] public float timer_nofire;             // （timer）射撃の間
     [HideInInspector] public float threshold_nofire;         // 射撃の間の閾値(しきいち)
+    [HideInInspector] private Vector3 firepos;                       // 煙幕生成位置
+    [HideInInspector] private Vector3 firedis1;                       // 煙幕生成位置との距離1
+    [HideInInspector] private Vector3 firedis2;                       // 煙幕生成位置との距離2
+    [HideInInspector] private Vector3 firedis3;                       // 煙幕生成位置との距離3
+    [HideInInspector] public float timer_smoke;
+    [HideInInspector] public float time_setsmoke;
 
     private IState currentState;
 
@@ -37,6 +45,13 @@ public class ControlBody : MonoBehaviour
         isfired = false;
         timer_nofire = 0;
         threshold_nofire = 3.0f;
+
+        firedis1 = new Vector3(-1.2f, -0.4f, -0.4f);
+        firedis2 = new Vector3(-0.65f, -0.4f, 0);
+        firedis3 = new Vector3(0.65f, -0.4f, 0);
+
+        timer_smoke = 0;
+        time_setsmoke = 0.08f;
     }
 
     void Update()
@@ -63,4 +78,27 @@ public class ControlBody : MonoBehaviour
         return stateInfo.IsName(animationName) && stateInfo.normalizedTime >= 1.0f;
     }
 
+    public void SetSmoke()
+    {
+        if (player.dir == 6)
+        {
+            firedis1.x = -1.2f;
+        }
+        else if (player.dir == 4)
+        {
+            firedis1.x = 1.2f;
+        }
+
+        firepos = player.transform.position + firedis1;
+
+        Instantiate(smoke, firepos, Quaternion.identity);
+
+        firepos = player.transform.position + firedis2;
+
+        Instantiate(smoke, firepos, Quaternion.identity);
+
+        firepos = player.transform.position + firedis3;
+
+        Instantiate(smoke, firepos, Quaternion.identity);
+    }
 }
