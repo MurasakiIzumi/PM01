@@ -12,6 +12,7 @@ public class ControlBody : MonoBehaviour
     public ControlPlayer player;
 
     [Header("‰Œ–‹")] public GameObject smoke;
+    [Header("—‰ºUŒ‚”»’è")] public GameObject FallAttack;
 
     [HideInInspector] public SpriteRenderer spriteRenderer;
     [HideInInspector] public Animator animator;

@@ -81,6 +81,15 @@ public class ControlPlayer : MonoBehaviour
         //Ammo関連
         if (ammoright > 0)
         {
+            if (ammoright <= ammobulletMax/4)
+            {
+                AmmoRight.color = Color.red;
+            }
+            else if (ammoright <= ammobulletMax/3)
+            {
+                AmmoRight.color = Color.yellow;
+            }
+
             AmmoRight.text = "" + ammoright;
         }
         else
@@ -90,6 +99,15 @@ public class ControlPlayer : MonoBehaviour
 
         if (ammoleft > 0)
         {
+            if (ammoleft <= ammobulletMax / 4)
+            {
+                AmmoLeft.color = Color.red;
+            }
+            else if (ammoleft <= ammobulletMax / 3)
+            {
+                AmmoLeft.color = Color.yellow;
+            }
+
             AmmoLeft.text = "" + ammoleft;
         }
         else
@@ -99,6 +117,15 @@ public class ControlPlayer : MonoBehaviour
 
         if (ammorocket > 0)
         {
+            if (ammorocket <= ammorocketMax / 4)
+            {
+                AmmoRocket.color = Color.red;
+            }
+            else if (ammorocket <= ammorocketMax / 3)
+            {
+                AmmoRocket.color = Color.yellow;
+            }
+
             AmmoRocket.text = "" + ammorocket;
         }
         else 

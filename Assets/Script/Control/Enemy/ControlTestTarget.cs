@@ -6,20 +6,14 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using static UnityEngine.EventSystems.EventTrigger;
 
-public class ControlTestEnemy : MonoBehaviour
+public class ControlTestTarget : MonoBehaviour
 {
-    public int defultdir;
     public int hp;
-    public float speed;
-    public float rotspd;
 
     [Header("爆発")] public GameObject explosion;
 
-    [Header("行動範囲")] public Vector3 Max;
-
     [HideInInspector] public SpriteRenderer spriteRenderer;
     [HideInInspector] public Animator animator;
-    [HideInInspector] public int dir;    // 向き（2上 4左 8下 6右）
 
     private IState currentState;
 
@@ -31,15 +25,12 @@ public class ControlTestEnemy : MonoBehaviour
 
     void Start()
     {
-        ChangeState(new TestEnemy_Idle(this));
-
-        dir = defultdir;
     }
 
     void Update()
     {
         // 現在のステート
-        currentState?.Execute();
+        //currentState?.Execute();
 
         HPCheck();
     }
@@ -87,7 +78,7 @@ public class ControlTestEnemy : MonoBehaviour
 
         if (other.gameObject.tag == "Laser")
         {
-            hp -=other.GetComponent<LaserControl>().damage;
+            hp -= other.GetComponent<LaserControl>().damage;
         }
 
         if (other.gameObject.tag == "Destroy")
@@ -95,33 +86,4 @@ public class ControlTestEnemy : MonoBehaviour
             hp = -1;
         }
     }
-
-    public bool CheckisOutMap(Vector3 pos)
-    {
-        if (pos.x >= Max.x)
-        {
-            return false;
-        }
-
-        else if (pos.x <= Max.x*-1.0f)
-        {
-            return false;
-        }
-
-        else if(pos.z>=Max.z)
-        {
-            return false;
-        }
-
-        else if (pos.z <= Max.z * -1.0f) 
-        {
-            return false;
-        }
-
-        else
-        {
-            return true;
-        }
-    }
-
 }

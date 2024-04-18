@@ -33,13 +33,16 @@ public class Rocket_Attack : IState
 
     public void Execute()
     {
-        // À•WˆÚ“®ŒvZ
-        rocket.transform.position = Vector3.Lerp(rocket.transform.position, rocket.target.transform.position, lerp);
+        if (rocket.target)
+        {
+            // À•WˆÚ“®ŒvZ
+            rocket.transform.position = Vector3.Lerp(rocket.transform.position, rocket.target.transform.position, lerp);
 
-        // Šp“xŒvZ
-        rocket.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            // Šp“xŒvZ
+            rocket.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
-        if(rocket.target==null)
+        }
+        else
         {
             rocket.DestroySelf();
         }

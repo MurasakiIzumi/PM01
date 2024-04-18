@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - Rocket(Search)
   - MiniMap
+  - Destroy
   layers:
   - Default
   - TransparentFX

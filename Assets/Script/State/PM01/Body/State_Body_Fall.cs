@@ -28,6 +28,8 @@ public class Body_Fall : IState
         speedx = 0;
         speedx1 = 0.8f;
         speedx2 = 2f;
+
+        body.FallAttack.GetComponent<BoxCollider>().enabled = true;
     }
     public void Execute()
     {
@@ -65,6 +67,7 @@ public class Body_Fall : IState
             body.player.isJump = false;
 
             //yó‘Ô‘JˆÚzIdleó‘Ô‚É
+            body.FallAttack.GetComponent<BoxCollider>().enabled = false;
             body.ChangeState(new Body_Idle(body));
         }
 
