@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -37,6 +38,7 @@ public class ControlPlayer : MonoBehaviour
     public float PowerMax;
     [HideInInspector] public float Power;
     public float PowerreplySpeed;
+    private bool isstart;
 
     [Header("Ammo")]
     public int ammobulletMax;
@@ -49,6 +51,7 @@ public class ControlPlayer : MonoBehaviour
     [HideInInspector] public int dir;                           // 向き（2上 4左 8下 6右）
     [HideInInspector] public bool flipx;
     [HideInInspector] public bool isJump;
+    [HideInInspector] public bool HpRun;
 
     private IState currentState;
 
@@ -62,6 +65,10 @@ public class ControlPlayer : MonoBehaviour
         dir = 6;                    // 登場時の向き（右）
         flipx=false;
         isJump=false;
+        isstart = true;
+        HpRun = false;
+        Hp = 0;
+        Power = 0;
         ammoright = ammobulletMax;
         ammoleft = ammobulletMax;
         ammorocket = ammorocketMax;
@@ -70,13 +77,27 @@ public class ControlPlayer : MonoBehaviour
     void Update()
     {
         //HP&Power関連
-        Hp += HpreplySpeed * Time.deltaTime;
-        Hp = Math.Max(0.0f, Math.Min(Hp, HpMax));
-        hpbar.fillAmount = Hp / 100.0f;
+        if (HpRun)
+        {
+            if (isstart)
+            {
+                Hp += PowerreplySpeed * Time.deltaTime * 3.0f;
+                Power += PowerreplySpeed * Time.deltaTime * 2.0f;
 
-        Power+=PowerreplySpeed* Time.deltaTime;
-        Power = Math.Max(0.0f, Math.Min(Power, PowerMax));
-        powerbar.fillAmount = Power / 100.0f;
+                if (Hp >= HpMax)
+                {
+                    isstart = false;
+                }
+            }
+
+            Hp += HpreplySpeed * Time.deltaTime;
+            Hp = Math.Max(0.0f, Math.Min(Hp, HpMax));
+            hpbar.fillAmount = Hp / 100.0f;
+
+            Power += PowerreplySpeed * Time.deltaTime;
+            Power = Math.Max(0.0f, Math.Min(Power, PowerMax));
+            powerbar.fillAmount = Power / 100.0f;
+        }
 
         //Ammo関連
         if (ammoright > 0)

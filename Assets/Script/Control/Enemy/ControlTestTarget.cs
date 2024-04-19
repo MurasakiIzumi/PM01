@@ -11,6 +11,7 @@ public class ControlTestTarget : MonoBehaviour
     public int hp;
 
     [Header("”š”­")] public GameObject explosion;
+    [Header("”C–±ŠÇ—")] public MissionManager missionManager;
 
     [HideInInspector] public SpriteRenderer spriteRenderer;
     [HideInInspector] public Animator animator;
@@ -25,6 +26,7 @@ public class ControlTestTarget : MonoBehaviour
 
     void Start()
     {
+        missionManager.Targetnum++;
     }
 
     void Update()
@@ -57,6 +59,7 @@ public class ControlTestTarget : MonoBehaviour
     {
         if (hp <= 0)
         {
+            missionManager.Targetnum--;
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }

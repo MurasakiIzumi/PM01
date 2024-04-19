@@ -1,20 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    public int TotalTime;
     private int timer;
     private float time;
     private int Minutes;
     private int Second;
 
+    [HideInInspector] public int TotalTime;
+    [HideInInspector] public bool isTimeOut;
+    [HideInInspector] public bool isRunning;
 
     // Start is called before the first frame update
     void Start()
     {
+        isTimeOut = false;
+        isRunning = false;
         timer = TotalTime;
         Minutes = timer / 60;
         Second = timer % 60;
@@ -26,7 +31,13 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        time+=Time.deltaTime;
+        if (isTimeOut != true)
+        {
+            if (isRunning)
+            {
+                time += Time.deltaTime;
+            }
+        }
 
         if (time >= 1.0f)
         {
@@ -37,29 +48,33 @@ public class Timer : MonoBehaviour
         Minutes = timer / 60;
         Second = timer % 60;
 
-        if (Second < 10)
+        if (isTimeOut != true)
         {
-            gameObject.GetComponent<Text>().text = "0" + Minutes + " : 0" + Second;
-        }
-        else 
-        {
-            gameObject.GetComponent<Text>().text = "0" + Minutes + " : " + Second;
+            if (Second < 10)
+            {
+                gameObject.GetComponent<Text>().text = "0" + Minutes + " : 0" + Second;
+            }
+            else
+            {
+                gameObject.GetComponent<Text>().text = "0" + Minutes + " : " + Second;
+            }
         }
 
         if (timer <= 10)
         {
             gameObject.GetComponent<Text>().color= Color.red;
         }
-        else if(time<=30)
+        else if(timer<=30)
         {
             gameObject.GetComponent<Text>().color = Color.yellow;
         }
 
-        if (timer <= 0)
+        if (timer < 0)
         {
             timer = 0;
             gameObject.GetComponent<Text>().fontSize = 35;
             gameObject.GetComponent<Text>().text = "Time Out";
+            isTimeOut=true;
         }
     }
 }
