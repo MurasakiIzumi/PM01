@@ -11,6 +11,8 @@ TagManager:
   - Rocket(Search)
   - MiniMap
   - Destroy
+  - Cannon(Enemy)
+  - Bullet(Enemy)
   layers:
   - Default
   - TransparentFX

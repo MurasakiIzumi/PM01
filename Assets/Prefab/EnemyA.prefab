@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8954893714339000998}
   - component: {fileID: 4463297090949436270}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,8 +154,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 5170416796036606408, guid: 410c9936cdbf54b4b958cf0bf3c08670, type: 3}
+  bullet: {fileID: 2424374583543345934, guid: a78e8fcbecdca4849b082e7755ac09a6, type: 3}
+  cannonball: {fileID: 988044742971982475, guid: f365082bc436f334ba3c984777ac7c12, type: 3}
+  Cannnon: {fileID: 164418102536969587}
+  Gun: {fileID: 9188540105550651155}
   rotationspeed: 3
-  searchdis: 15
+  searchdis: 25
+  attackdis: 15
 --- !u!1 &821571639441112662
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,7 +820,7 @@ GameObject:
   - component: {fileID: 1075682656504759101}
   - component: {fileID: 4577911298196295640}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -26,7 +26,7 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        UIstart = false;
+        UIstart = true;
         UImid = false;
         UIend = false;
         timer = 0;
