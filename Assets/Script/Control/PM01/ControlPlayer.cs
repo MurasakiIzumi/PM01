@@ -216,4 +216,19 @@ public class ControlPlayer : MonoBehaviour
 
         return newvec;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Bullet(Enemy)")
+        {
+            Hp -= other.GetComponent<EnemyBulletControl>().damage;
+            Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.tag == "Cannon(Enemy)")
+        {
+            Hp -= other.GetComponent<EnemyCannonControl>().damage;
+            Destroy(other.gameObject);
+        }
+    }
 }
