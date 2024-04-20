@@ -24,6 +24,7 @@ public class CameraControl : MonoBehaviour
     public Vector3 pos3;
 
     private int nowpos;
+    private bool OpenOver;
 
     void Start()
     {
@@ -37,26 +38,41 @@ public class CameraControl : MonoBehaviour
     }
     void Update()
     {
-        //Player向きを取得
-        if (Input.GetAxisRaw("Horizontal") > 0)
+        OpenOver = Player.GetComponent<ControlPlayer>().canRun;
+
+        if (OpenOver)
         {
-            distance = distanceR;
-        }
-        else if (Input.GetAxisRaw("Horizontal") < 0)
-        {
-            distance = distanceL;
+            //Player向きを取得
+            if (Input.GetAxisRaw("Horizontal") > 0)
+            {
+                distance = distanceR;
+            }
+            else if (Input.GetAxisRaw("Horizontal") < 0)
+            {
+                distance = distanceL;
+            }
         }
 
         //目標位置取得
         Vector3 TargetPos = Player.transform.position + distance;
 
-        //目的地に向かって時間の経過とともに徐々にベクトルを変化させます
-         transform.position = Vector3.SmoothDamp(transform.position, TargetPos, ref Velocity, SmoothTime);
-
-        //マオスのスクロールでカメラ距離を変更
-        if (Input.GetAxis("Mouse ScrollWheel") != 0)
+        if (OpenOver)
         {
-            CameraPosChange(Input.GetAxis("Mouse ScrollWheel"), TargetPos);
+            //目的地に向かって時間の経過とともに徐々にベクトルを変化させます
+            transform.position = Vector3.SmoothDamp(transform.position, TargetPos, ref Velocity, SmoothTime);
+        }
+        else
+        {
+            transform.position = Vector3.SmoothDamp(transform.position, TargetPos, ref Velocity, SmoothTime / 3);
+        }
+
+        if (OpenOver)
+        {
+            //マオスのスクロールでカメラ距離を変更
+            if (Input.GetAxis("Mouse ScrollWheel") != 0)
+            {
+                CameraPosChange(Input.GetAxis("Mouse ScrollWheel"), TargetPos);
+            }
         }
     }
 

@@ -43,7 +43,10 @@ public class ControlRocketLancher : MonoBehaviour
     void Update()
     {
         // 現在のステート
-        currentState?.Execute();
+        if (player.canRun)
+        {
+            currentState?.Execute();
+        }
     }
 
     public void ChangeState(IState newState)

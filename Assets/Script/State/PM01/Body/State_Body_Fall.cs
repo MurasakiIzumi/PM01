@@ -14,6 +14,7 @@ public class Body_Fall : IState
     private float speedx2;
     private Vector3 target;
     private float timer;
+    private float jumphigh;
 
     public Body_Fall(ControlBody Body,float JumpSpeed)
     {
@@ -28,6 +29,7 @@ public class Body_Fall : IState
         speedx = 0;
         speedx1 = 0.8f;
         speedx2 = 2f;
+        jumphigh = body.player.transform.position.y;
 
         body.FallAttack.GetComponent<BoxCollider>().enabled = true;
     }
@@ -48,7 +50,7 @@ public class Body_Fall : IState
         }
 
         //“r’†‚ÌƒAƒjƒ[ƒVƒ‡ƒ“•Ï‰»
-        if (body.player.transform.position.y <= body.player.jumphigh / 3)
+        if (body.player.transform.position.y <= jumphigh / 3)
         {
             speedx = speedx2;
             body.SetAnimation("Fall2");
@@ -68,6 +70,10 @@ public class Body_Fall : IState
 
             //yó‘Ô‘JˆÚzIdleó‘Ô‚É
             body.FallAttack.GetComponent<BoxCollider>().enabled = false;
+            if (body.player.canRun != true)
+            {
+                body.player.canRun = true;
+            }
             body.ChangeState(new Body_Idle(body));
         }
 

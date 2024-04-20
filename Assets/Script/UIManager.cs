@@ -26,7 +26,7 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        UIstart = true;
+        UIstart = false;
         UImid = false;
         UIend = false;
         timer = 0;
@@ -39,7 +39,7 @@ public class UIManager : MonoBehaviour
     {
         if (UIstart)
         {
-            MissionHint.SetActive(true);
+            StartCoroutine("MissionHintStart");
 
             UIbg.fillAmount += Time.deltaTime * 1.5f;
 
@@ -48,6 +48,7 @@ public class UIManager : MonoBehaviour
             if (UIbg.fillAmount >= 1.0f)
             {
                 UImid = true;
+                UIstart = false;
             }
         }
 
@@ -67,8 +68,6 @@ public class UIManager : MonoBehaviour
             if (Hp.GetComponent<Image>().fillAmount >= 1.0f)
             {
                 MissionHint.SetActive(false);
-                UIstart = false;
-                UImid = false;
                 UIend = false;
             }
         }
@@ -102,5 +101,17 @@ public class UIManager : MonoBehaviour
                 TimeOutdHint.SetActive(true);
             }
         }
+    }
+
+    IEnumerator MissionHintStart()
+    {
+        yield return new WaitForSeconds(1.0f);
+        //íxÇÁÇπÇΩÇ¢èàóù
+        if (MissionHint.activeSelf)
+        {
+            yield break;
+        }
+
+        MissionHint.SetActive(true);
     }
 }

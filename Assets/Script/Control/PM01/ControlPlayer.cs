@@ -49,6 +49,7 @@ public class ControlPlayer : MonoBehaviour
     [HideInInspector] public int ammorocket;
 
     [HideInInspector] public int dir;                           // 向き（2上 4左 8下 6右）
+    [HideInInspector] public bool canRun;
     [HideInInspector] public bool flipx;
     [HideInInspector] public bool isJump;
     [HideInInspector] public bool HpRun;
@@ -63,7 +64,8 @@ public class ControlPlayer : MonoBehaviour
     void Start()
     {
         dir = 6;                    // 登場時の向き（右）
-        flipx=false;
+        canRun=false;
+        flipx =false;
         isJump=false;
         isstart = true;
         HpRun = false;
@@ -153,8 +155,6 @@ public class ControlPlayer : MonoBehaviour
         {
             AmmoRocket.text = "Out";
         }
-       
-
     }
 
     public void SetSpriteFlip(bool flip)

@@ -39,7 +39,7 @@ public class ControlBody : MonoBehaviour
 
     void Start()
     {
-        ChangeState(new Body_Idle(this));
+        ChangeState(new Body_Fall(this, player.move_speed*1.55f));
 
         timer_noInput = 0;
         threshold_noInput = 0.1f;

@@ -23,12 +23,13 @@ public class MissionManager : MonoBehaviour
         CanMove = false;
         isMissionComplete = false;
         isTimeOut=false;
-        UImanager.UIstart = true;
     }
 
 
     void Update()
     {
+        CheckCanStart();
+
         CheckMission();
 
         if (UImanager.UImid)
@@ -49,6 +50,18 @@ public class MissionManager : MonoBehaviour
             ShowEvacuateLine();
             EvacuatePlayer();
         }
+    }
+
+    private void CheckCanStart()
+    {
+        if(Player.GetComponent<ControlPlayer>().canRun)
+        {
+            if (CanMove != true)
+            {
+                StartCoroutine("UIStart");
+            }
+        }
+
     }
 
     private void CheckMission()
@@ -86,5 +99,13 @@ public class MissionManager : MonoBehaviour
         {
             SceneManager.LoadScene("StageSelect");
         }
+    }
+
+    IEnumerator UIStart()
+    {
+        yield return new WaitForSeconds(0.5f);
+        //íxÇÁÇπÇΩÇ¢èàóù
+        UImanager.UIstart = true;
+        CanMove = true;
     }
 }
