@@ -50,5 +50,10 @@ public class BuildingControl : MonoBehaviour
         {
             hp = -1;
         }
+
+        if (other.gameObject.tag == "Destroy(3rd)")
+        {
+            hp = -1;
+        }
     }
 }

@@ -230,5 +230,10 @@ public class ControlPlayer : MonoBehaviour
             Hp -= other.GetComponent<EnemyCannonControl>().damage;
             Destroy(other.gameObject);
         }
+
+        if (other.gameObject.tag == "Destroy(3rd)")
+        {
+            Hp = -1;
+        }
     }
 }

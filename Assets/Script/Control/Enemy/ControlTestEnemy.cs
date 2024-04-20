@@ -94,6 +94,11 @@ public class ControlTestEnemy : MonoBehaviour
         {
             hp = -1;
         }
+
+        if (other.gameObject.tag == "Destroy(3rd)")
+        {
+            hp = -1;
+        }
     }
 
     public bool CheckisOutMap(Vector3 pos)

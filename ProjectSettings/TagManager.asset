@@ -13,6 +13,7 @@ TagManager:
   - Destroy
   - Cannon(Enemy)
   - Bullet(Enemy)
+  - Destroy(3rd)
   layers:
   - Default
   - TransparentFX
