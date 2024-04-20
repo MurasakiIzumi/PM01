@@ -43,8 +43,7 @@ public class MissionManager : MonoBehaviour
             ShowEvacuateLine();
             EvacuatePlayer();
         }
-
-        if (timer.isTimeOut)
+        else if (timer.isTimeOut)
         {
             UImanager.isTimeOut = true;
             ShowEvacuateLine();
@@ -90,12 +89,12 @@ public class MissionManager : MonoBehaviour
             SceneManager.LoadScene("StageSelect");
         }
 
-        if (Player.transform.position.y >= 90.0f)
+        if (Player.transform.position.z >= 90.0f)
         {
             SceneManager.LoadScene("StageSelect");
         }
 
-        if (Player.transform.position.y <= -90.0f)
+        if (Player.transform.position.z <= -90.0f)
         {
             SceneManager.LoadScene("StageSelect");
         }

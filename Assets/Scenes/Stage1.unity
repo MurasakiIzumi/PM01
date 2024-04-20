@@ -706,7 +706,7 @@ MonoBehaviour:
   UImanager: {fileID: 1370101988}
   Evacuate: {fileID: 1244457346}
   timer: {fileID: 764387710}
-  TotalTime: 60
+  TotalTime: 90
   CanMove: 0
   isMissionComplete: 0
   isTimeOut: 0
@@ -1916,6 +1916,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 318568880345083843, guid: bb876caa08ee2fc4d900ddc8a00b36d0, type: 3}
+      propertyPath: m_SortingOrder
+      value: -99
+      objectReference: {fileID: 0}
+    - target: {fileID: 763371251299069658, guid: bb876caa08ee2fc4d900ddc8a00b36d0, type: 3}
+      propertyPath: m_SortingOrder
+      value: -99
+      objectReference: {fileID: 0}
+    - target: {fileID: 1452432531818046675, guid: bb876caa08ee2fc4d900ddc8a00b36d0, type: 3}
+      propertyPath: m_SortingOrder
+      value: -99
+      objectReference: {fileID: 0}
+    - target: {fileID: 2116117048627648730, guid: bb876caa08ee2fc4d900ddc8a00b36d0, type: 3}
+      propertyPath: m_SortingOrder
+      value: 99
+      objectReference: {fileID: 0}
+    - target: {fileID: 2277483720945834668, guid: bb876caa08ee2fc4d900ddc8a00b36d0, type: 3}
+      propertyPath: m_SortingOrder
+      value: 99
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502784309360734055, guid: bb876caa08ee2fc4d900ddc8a00b36d0, type: 3}
+      propertyPath: m_SortingOrder
+      value: 99
+      objectReference: {fileID: 0}
     - target: {fileID: 2803888981678909226, guid: bb876caa08ee2fc4d900ddc8a00b36d0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1956,9 +1980,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3040774642686013811, guid: bb876caa08ee2fc4d900ddc8a00b36d0, type: 3}
+      propertyPath: m_SortingOrder
+      value: -99
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845637275919343651, guid: bb876caa08ee2fc4d900ddc8a00b36d0, type: 3}
+      propertyPath: m_SortingOrder
+      value: -99
+      objectReference: {fileID: 0}
     - target: {fileID: 6416724132084557966, guid: bb876caa08ee2fc4d900ddc8a00b36d0, type: 3}
       propertyPath: m_Name
       value: BG
+      objectReference: {fileID: 0}
+    - target: {fileID: 6461757583452640707, guid: bb876caa08ee2fc4d900ddc8a00b36d0, type: 3}
+      propertyPath: m_SortingOrder
+      value: -99
+      objectReference: {fileID: 0}
+    - target: {fileID: 7645637671869168751, guid: bb876caa08ee2fc4d900ddc8a00b36d0, type: 3}
+      propertyPath: m_SortingOrder
+      value: -99
+      objectReference: {fileID: 0}
+    - target: {fileID: 7862781896051626939, guid: bb876caa08ee2fc4d900ddc8a00b36d0, type: 3}
+      propertyPath: m_SortingOrder
+      value: -99
+      objectReference: {fileID: 0}
+    - target: {fileID: 8732547532731556169, guid: bb876caa08ee2fc4d900ddc8a00b36d0, type: 3}
+      propertyPath: m_SortingOrder
+      value: -99
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

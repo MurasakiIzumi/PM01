@@ -6,7 +6,6 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
-using static UnityEditor.Progress;
 using static UnityEngine.EventSystems.EventTrigger;
 using Image = UnityEngine.UI.Image;
 

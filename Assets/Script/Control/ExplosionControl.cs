@@ -20,9 +20,12 @@ public class ExplosionControl : MonoBehaviour
         // アニメーションプレイ状態を取得
         var state = animator.GetCurrentAnimatorStateInfo(0);
 
-        if (state.normalizedTime >= 0.7f)
+        if (haveDamage)
         {
-            GetComponent<CapsuleCollider>().enabled = true;
+            if (state.normalizedTime >= 0.7f)
+            {
+                GetComponent<CapsuleCollider>().enabled = true;
+            }
         }
 
         // アニメーションが終わったら消滅
