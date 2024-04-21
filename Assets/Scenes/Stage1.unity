@@ -1228,7 +1228,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0.11320323, y: 0, z: 0, w: 0.9935719}
-  m_LocalPosition: {x: 4, y: 32.5, z: -10}
+  m_LocalPosition: {x: 4, y: 2.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1248,9 +1248,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1480292909}
   SmoothTime: 0.3
-  pos1: {x: 4, y: 32.5, z: -10}
-  pos2: {x: 6, y: 33.75, z: -15}
-  pos3: {x: 9, y: 35.625, z: -22.5}
+  pos1: {x: 4, y: 2.5, z: -10}
+  pos2: {x: 6, y: 3.75, z: -15}
+  pos3: {x: 9, y: 5.625, z: -22.5}
 --- !u!1001 &987735950
 PrefabInstance:
   m_ObjectHideFlags: 0

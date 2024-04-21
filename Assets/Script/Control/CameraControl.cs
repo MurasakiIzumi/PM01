@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net.Sockets;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class CameraControl : MonoBehaviour
 {
@@ -26,20 +27,28 @@ public class CameraControl : MonoBehaviour
     private int nowpos;
     private bool OpenOver;
 
+    private Quaternion OriginRotation;
+
     void Start()
     {
-        nowpos = 1;
-        playerpos = Player.transform.position;
-        distance = pos1 - playerpos;
+        nowpos = 2;
+        distance = pos1;
         distanceR = distance;
         distanceL = distance;
         distanceL.x = distanceL.x * -1.0f;
 
+        OriginRotation = transform.rotation;
+        transform.rotation = Quaternion.LookRotation(Player.transform.position - transform.position);
+
     }
     void Update()
     {
-        OpenOver = Player.GetComponent<ControlPlayer>().canRun;
-
+        if (OpenOver!= Player.GetComponent<ControlPlayer>().canRun)
+        {
+            OpenOver = Player.GetComponent<ControlPlayer>().canRun;
+            distance = pos2;
+        }
+        
         if (OpenOver)
         {
             //Player向きを取得
@@ -60,10 +69,15 @@ public class CameraControl : MonoBehaviour
         {
             //目的地に向かって時間の経過とともに徐々にベクトルを変化させます
             transform.position = Vector3.SmoothDamp(transform.position, TargetPos, ref Velocity, SmoothTime);
+
+            if (transform.rotation != OriginRotation)
+            {
+                transform.rotation = Quaternion.Slerp(transform.rotation, OriginRotation, 5.0f * Time.deltaTime);
+            }
         }
-        else
+        else 
         {
-            transform.position = Vector3.SmoothDamp(transform.position, TargetPos, ref Velocity, SmoothTime / 3);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Player.transform.position - transform.position), 10.0f * Time.deltaTime);
         }
 
         if (OpenOver)
@@ -71,24 +85,20 @@ public class CameraControl : MonoBehaviour
             //マオスのスクロールでカメラ距離を変更
             if (Input.GetAxis("Mouse ScrollWheel") != 0)
             {
-                CameraPosChange(Input.GetAxis("Mouse ScrollWheel"), TargetPos);
+                CameraPosChange(Input.GetAxis("Mouse ScrollWheel"));
             }
         }
     }
 
-    void CameraPosChange(float input, Vector3 target)
+    void CameraPosChange(float input)
     {
-        Vector3 pos = target;
-
         if (input>0.0f)
         {
             nowpos--;
-            pos = new Vector3(pos.x / 1.5f, pos.y / 1.5f, pos.z / 1.5f);
         }
         else if(input<0.0f)
         {
             nowpos++;
-            pos = new Vector3(pos.x * 1.5f, pos.y * 1.5f, pos.z * 1.5f);
         }
 
         if (nowpos > 3)
@@ -105,13 +115,13 @@ public class CameraControl : MonoBehaviour
         switch (nowpos)
         {
             case 1:
-                distance = pos1 - playerpos;
+                distance = pos1;
                 break;
             case 2:
-                distance = pos2 - playerpos;
+                distance = pos2;
                 break;
             case 3:
-                distance = pos3 - playerpos;
+                distance = pos3;
                 break;
         }
 

@@ -90,7 +90,6 @@ public class MissionManager : MonoBehaviour
             playerpos.x = Mathf.Max(-89.0f, Mathf.Min(Player.transform.position.x, 89.0f));
             playerpos.z = Mathf.Max(-89.0f, Mathf.Min(Player.transform.position.z, 89.0f));
             Player.transform.position = playerpos;
-            Debug.Log("111");
         }
     }
 
