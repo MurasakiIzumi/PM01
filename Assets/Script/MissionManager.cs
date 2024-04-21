@@ -15,6 +15,7 @@ public class MissionManager : MonoBehaviour
     [Header("ƒ^ƒCƒ}[")] public Timer timer;
     [Header("ìíŠÔ")] public int TotalTime;
     [Header("‹O“¹–CŒ‚")] public GameObject KineticObj;
+    [Header("”š”­")] public GameObject Explosion;
     [HideInInspector] public bool CanMove;
     [HideInInspector] public bool isMissionComplete;
     [HideInInspector] public bool isTimeOut;
@@ -39,6 +40,8 @@ public class MissionManager : MonoBehaviour
         CheckCanStart();
 
         CheckMission();
+
+        CheckPlayerHp();
 
         if (UImanager.UImid)
         {
@@ -85,6 +88,20 @@ public class MissionManager : MonoBehaviour
             }
         }
 
+    }
+
+    private void CheckPlayerHp()
+    {
+        if (Player.GetComponent<ControlPlayer>().isstart != true)
+        {
+            if (Player.GetComponent<ControlPlayer>().Hp <= 0.0f)
+            {
+                Player.GetComponent<ControlPlayer>().Hp = 100.0f;
+                Player.SetActive(false);
+                Instantiate(Explosion, Player.transform.position, Quaternion.identity);
+                StartCoroutine("GameOver");
+            }
+        }
     }
 
     private void CheckMission()
@@ -149,5 +166,13 @@ public class MissionManager : MonoBehaviour
         //’x‚ç‚¹‚½‚¢ˆ—
         UImanager.UIstart = true;
         CanMove = true;
+    }
+
+    IEnumerator GameOver()
+    {
+        yield return new WaitForSeconds(3.0f);
+
+        //’x‚ç‚¹‚½‚¢ˆ—
+        SceneManager.LoadScene("StageSelect");
     }
 }

@@ -37,7 +37,7 @@ public class ControlPlayer : MonoBehaviour
     public float PowerMax;
     [HideInInspector] public float Power;
     public float PowerreplySpeed;
-    private bool isstart;
+    [HideInInspector] public bool isstart;
 
     [Header("Ammo")]
     public int ammobulletMax;
@@ -91,7 +91,7 @@ public class ControlPlayer : MonoBehaviour
             }
 
             Hp += HpreplySpeed * Time.deltaTime;
-            Hp = Math.Max(0.0f, Math.Min(Hp, HpMax));
+            Hp = Math.Min(Hp, HpMax);
             hpbar.fillAmount = Hp / 100.0f;
 
             Power += PowerreplySpeed * Time.deltaTime;

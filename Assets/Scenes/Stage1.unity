@@ -830,6 +830,7 @@ MonoBehaviour:
   timer: {fileID: 764387710}
   TotalTime: 90
   KineticObj: {fileID: 7858133543194349448, guid: 0900813566eabc144b621dc731557917, type: 3}
+  Explosion: {fileID: 3283144453260788019, guid: c7a5038de9e8d4e4e9dc128ccb50c4bf, type: 3}
   CanMove: 0
   isMissionComplete: 0
   isTimeOut: 0
