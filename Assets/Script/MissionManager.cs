@@ -49,6 +49,10 @@ public class MissionManager : MonoBehaviour
             ShowEvacuateLine();
             EvacuatePlayer();
         }
+        else 
+        {
+            CheckPlayerPos();
+        }
     }
 
     private void CheckCanStart()
@@ -75,6 +79,19 @@ public class MissionManager : MonoBehaviour
     private void ShowEvacuateLine()
     {
         Evacuate.SetActive(true);
+    }
+
+    private void CheckPlayerPos()
+    {
+        Vector3 playerpos = Player.transform.position;
+
+        if ((playerpos.x > 88.0f) || (playerpos.x < -88.0f) || (playerpos.z > 88.0f) || (playerpos.z < -88.0f))
+        {
+            playerpos.x = Mathf.Max(-89.0f, Mathf.Min(Player.transform.position.x, 89.0f));
+            playerpos.z = Mathf.Max(-89.0f, Mathf.Min(Player.transform.position.z, 89.0f));
+            Player.transform.position = playerpos;
+            Debug.Log("111");
+        }
     }
 
     private void EvacuatePlayer()

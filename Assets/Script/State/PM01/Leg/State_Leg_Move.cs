@@ -55,13 +55,16 @@ public class Leg_Move : IState
         if (leg.player.isJump == false)
         {
             //yó‘Ô‘JˆÚzFastMoveó‘Ô‚É
-            if ((Input.GetAxisRaw("Horizontal") != 0) && (Input.GetKey(KeyCode.LeftShift) == true))
+            if (leg.player.Power >= 10.0f)
             {
-                leg.ChangeState(new Leg_FastMove(leg));
-            }
-            if ((Input.GetAxisRaw("Vertical") != 0) && (Input.GetKey(KeyCode.LeftShift) == true))
-            {
-                leg.ChangeState(new Leg_FastMove(leg));
+                if ((Input.GetAxisRaw("Horizontal") != 0) && (Input.GetKey(KeyCode.LeftShift) == true))
+                {
+                    leg.ChangeState(new Leg_FastMove(leg));
+                }
+                if ((Input.GetAxisRaw("Vertical") != 0) && (Input.GetKey(KeyCode.LeftShift) == true))
+                {
+                    leg.ChangeState(new Leg_FastMove(leg));
+                }
             }
         }
 

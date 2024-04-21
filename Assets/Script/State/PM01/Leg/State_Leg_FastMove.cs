@@ -47,6 +47,9 @@ public class Leg_FastMove : IState
             leg.timer_noInput += Time.deltaTime;
         }
 
+        //Power‚ªŒ¸‚é
+        leg.player.Power -= leg.player.PowerreplySpeed * 1.5f * Time.deltaTime;
+
         //yó‘Ô‘JˆÚzIdleó‘Ô‚Éi“ü—Í‚µ‚Ä‚¢‚È‚¢ŽžŠÔ‚ªè‡’l‚ð’´‚¦‚é‚Æj
         if (leg.timer_noInput > leg.threshold_noInput)
         {
@@ -59,6 +62,10 @@ public class Leg_FastMove : IState
             leg.ChangeState(new Leg_Move(leg));
         }
         if ((Input.GetAxisRaw("Vertical") != 0) && (Input.GetKey(KeyCode.LeftShift) == false))
+        {
+            leg.ChangeState(new Leg_Move(leg));
+        }
+        if(leg.player.Power<=0.0f)
         {
             leg.ChangeState(new Leg_Move(leg));
         }

@@ -83,8 +83,6 @@ public class ControlPlayer : MonoBehaviour
             if (isstart)
             {
                 Hp += PowerreplySpeed * Time.deltaTime * 3.0f;
-                Power += PowerreplySpeed * Time.deltaTime * 2.0f;
-
                 if (Hp >= HpMax)
                 {
                     isstart = false;
