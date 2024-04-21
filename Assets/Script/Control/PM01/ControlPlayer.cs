@@ -170,15 +170,6 @@ public class ControlPlayer : MonoBehaviour
                 flipx = true;
 
                 this.GetComponent<BoxCollider>().center = ColliderFlip(this.GetComponent<BoxCollider>().center);
-
-                //part_head.gameObject.GetComponent<BoxCollider>().center = ColliderFlip(part_head.gameObject.GetComponent<BoxCollider>().center);
-                //part_hands.gameObject.GetComponent<BoxCollider>().center = ColliderFlip(part_hands.gameObject.GetComponent<BoxCollider>().center);
-                //part_body.gameObject.GetComponent<BoxCollider>().center = ColliderFlip(part_body.gameObject.GetComponent<BoxCollider>().center);
-                //part_leg2.gameObject.GetComponent<BoxCollider>().center = ColliderFlip(part_leg2.gameObject.GetComponent<BoxCollider>().center);
-            }
-            else
-            {
-                Debug.Log("各部位がちゃん設置されていない！");
             }
         }
         else if (flip == false)
@@ -194,15 +185,6 @@ public class ControlPlayer : MonoBehaviour
                 flipx = false;
 
                 this.GetComponent<BoxCollider>().center = ColliderFlip(this.GetComponent<BoxCollider>().center);
-
-                //part_head.gameObject.GetComponent<BoxCollider>().center = ColliderFlip(part_head.gameObject.GetComponent<BoxCollider>().center);
-                //part_hands.gameObject.GetComponent<BoxCollider>().center = ColliderFlip(part_hands.gameObject.GetComponent<BoxCollider>().center);
-                //part_body.gameObject.GetComponent<BoxCollider>().center = ColliderFlip(part_body.gameObject.GetComponent<BoxCollider>().center);
-                //part_leg2.gameObject.GetComponent<BoxCollider>().center = ColliderFlip(part_leg2.gameObject.GetComponent<BoxCollider>().center);
-            }
-            else
-            {
-                Debug.Log("各部位がちゃん設置されていない！");
             }
         }
     }

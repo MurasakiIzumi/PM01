@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.XR;
 
 public class MissionManager : MonoBehaviour
 {
@@ -13,9 +14,13 @@ public class MissionManager : MonoBehaviour
     [Header("—£’Eƒ‰ƒCƒ“")] public GameObject Evacuate;
     [Header("ƒ^ƒCƒ}[")] public Timer timer;
     [Header("ìíŽžŠÔ")] public int TotalTime;
+    [Header("‹O“¹–CŒ‚")] public GameObject KineticObj;
     [HideInInspector] public bool CanMove;
     [HideInInspector] public bool isMissionComplete;
     [HideInInspector] public bool isTimeOut;
+
+    private float timer_Kinetic;
+    private float Relord_Kinetic;
 
     void Start()
     {
@@ -23,6 +28,9 @@ public class MissionManager : MonoBehaviour
         CanMove = false;
         isMissionComplete = false;
         isTimeOut=false;
+
+        timer_Kinetic=0;
+        Relord_Kinetic = 2.0f;
     }
 
 
@@ -52,6 +60,18 @@ public class MissionManager : MonoBehaviour
         else 
         {
             CheckPlayerPos();
+        }
+
+        if (UImanager.isTimeOut)
+        {
+            timer_Kinetic += Time.deltaTime;
+
+            if (timer_Kinetic >= Relord_Kinetic)
+            {
+                KineticAttack();
+                timer_Kinetic = 0;
+                Relord_Kinetic = Random.Range(0.25f, 0.5f);
+            }
         }
     }
 
@@ -114,6 +134,13 @@ public class MissionManager : MonoBehaviour
         {
             SceneManager.LoadScene("StageSelect");
         }
+    }
+
+    private void KineticAttack()
+    {
+        Vector3 TargetPos=new Vector3(Random.Range(-85.0f, 85.0f),60.0f, Random.Range(-85.0f, 85.0f));
+
+        Instantiate(KineticObj, TargetPos, Quaternion.identity);
     }
 
     IEnumerator UIStart()

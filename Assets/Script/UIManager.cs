@@ -86,8 +86,7 @@ public class UIManager : MonoBehaviour
                 MissionCompleteHint.SetActive(true);
             }
         }
-
-        if (isTimeOut)
+        else if (isTimeOut)
         {
             timer += Time.deltaTime;
 
