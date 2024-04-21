@@ -47,6 +47,9 @@ public class CameraControl : MonoBehaviour
         {
             OpenOver = Player.GetComponent<ControlPlayer>().canRun;
             distance = pos2;
+            distanceR = distance;
+            distanceL = distance;
+            distanceL.x = distanceL.x * -1.0f;
         }
         
         if (OpenOver)
