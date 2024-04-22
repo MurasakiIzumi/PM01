@@ -352,6 +352,7 @@ MonoBehaviour:
   PowerMax: 0
   Power: 0
   PowerreplySpeed: 0
+  isstart: 0
   ammobulletMax: 0
   ammorocketMax: 0
   ammoright: 0
@@ -637,8 +638,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7344314564765082733}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.62251467, y: -0, z: -0, w: 0.7826082}
-  m_LocalPosition: {x: 0, y: 30, z: -13.5}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 30, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -678,7 +679,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: 0
   m_CullingMask:

@@ -73,6 +73,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 3
   explosion: {fileID: 3283144453260788019, guid: 5d27eff2237e0b0439f08b9bc1f9f2bb, type: 3}
+  missionManager: {fileID: 0}
   spriteRenderer: {fileID: 0}
   animator: {fileID: 0}
 --- !u!1 &3120175620198285084
@@ -516,7 +517,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 655175475, guid: 770104ae27310d347b0edd17cc4b7dc7, type: 3}
-  m_Color: {r: 0.9622642, g: 0.6708002, b: 0.063545614, a: 1}
+  m_Color: {r: 0.93569285, g: 0.9607843, b: 0.0627451, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
