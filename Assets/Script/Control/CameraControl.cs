@@ -9,7 +9,6 @@ public class CameraControl : MonoBehaviour
 {
     //ターゲット(Player)
     [SerializeField] public GameObject Player;
-    private Vector3 playerpos;
 
     //カメラとの距離
     private Vector3 distance;
