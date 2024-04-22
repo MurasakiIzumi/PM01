@@ -202,13 +202,13 @@ public class ControlPlayer : MonoBehaviour
         if (other.gameObject.tag == "Bullet(Enemy)")
         {
             Hp -= other.GetComponent<EnemyBulletControl>().damage;
-            Destroy(other.gameObject);
+            other.GetComponent<EnemyBulletControl>().Hit();
         }
 
         if (other.gameObject.tag == "Cannon(Enemy)")
         {
             Hp -= other.GetComponent<EnemyCannonControl>().damage;
-            Destroy(other.gameObject);
+            other.GetComponent<EnemyCannonControl>().Hit();
         }
 
         if (other.gameObject.tag == "Destroy(3rd)")

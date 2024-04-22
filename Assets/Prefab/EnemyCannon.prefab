@@ -149,6 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   damage: 20
+  Explosion: {fileID: 1963387136426011568, guid: 6001ac1e312cdef4bb1d22660cbe6681, type: 3}
 --- !u!1 &5952031765809516653
 GameObject:
   m_ObjectHideFlags: 0

@@ -46,6 +46,18 @@ public class BuildingControl : MonoBehaviour
             hp -= other.GetComponent<LaserControl>().damage;
         }
 
+        if (other.gameObject.tag == "Bullet(Enemy)")
+        {
+            hp -= other.GetComponent<EnemyBulletControl>().damage;
+            other.GetComponent<EnemyBulletControl>().Hit();
+        }
+
+        if (other.gameObject.tag == "Cannon(Enemy)")
+        {
+            hp -= other.GetComponent<EnemyCannonControl>().damage;
+            other.GetComponent<EnemyCannonControl>().Hit();
+        }
+
         if (other.gameObject.tag == "Destroy")
         {
             hp = -1;

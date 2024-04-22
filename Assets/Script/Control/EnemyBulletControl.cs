@@ -7,6 +7,8 @@ public class EnemyBulletControl : MonoBehaviour
     public float speed;
     public int damage;
 
+    [Header("–½’†")] public GameObject Spark;
+
     [HideInInspector] private float timer_live;         // itimerj‘¶İŠÔ
     [HideInInspector] private float threshold_live;    // ‘¶İŠÔ‚Ìè‡’l(‚µ‚«‚¢‚¿)
     //[HideInInspector] private float rand;
@@ -31,5 +33,12 @@ public class EnemyBulletControl : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+    }
+
+    public void Hit()
+    {
+        Instantiate(Spark, transform.position, Quaternion.identity);
+
+        Destroy(gameObject);
     }
 }

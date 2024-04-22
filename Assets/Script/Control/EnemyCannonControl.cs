@@ -7,6 +7,8 @@ public class EnemyCannonControl : MonoBehaviour
     public float speed;
     public int damage;
 
+    [Header("–½’†")] public GameObject Explosion;
+
     [HideInInspector] private float timer_live;         // itimerj‘¶İŠÔ
     [HideInInspector] private float threshold_live;    // ‘¶İŠÔ‚Ìè‡’l(‚µ‚«‚¢‚¿)
 
@@ -29,5 +31,11 @@ public class EnemyCannonControl : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+    }
+    public void Hit()
+    {
+        Instantiate(Explosion, transform.position, Quaternion.identity);
+
+        Destroy(gameObject);
     }
 }

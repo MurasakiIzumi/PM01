@@ -150,3 +150,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   damage: 1
+  Spark: {fileID: 1963387136426011568, guid: 903eee204a3a2e849a301693e556a684, type: 3}
