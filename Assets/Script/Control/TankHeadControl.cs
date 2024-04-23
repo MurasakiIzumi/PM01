@@ -8,10 +8,15 @@ public class TankHeadControl : MonoBehaviour
     public GameObject bullet;
     public GameObject cannonball;
     public GameObject Cannnon;
+    public Transform CannonSparkPos;
     public GameObject Gun;
+    public Transform GunSparkPos;
     public float rotationspeed;
     public float searchdis;
     public float attackdis;
+
+    [Header("ñCSpark")] public GameObject CannonSpark;
+    [Header("ã@èeSpark")] public GameObject GunSpark;
 
     private Vector3 ZreoY;
     private Vector3 target;
@@ -80,6 +85,7 @@ public class TankHeadControl : MonoBehaviour
     private void SetBullet()
     {
         Instantiate(bullet, Gun.transform.position, transform.rotation);
+        Instantiate(GunSpark, GunSparkPos.position, transform.rotation);
         threshold_fire++;
         timer_nofire = 0;
     }
@@ -87,6 +93,7 @@ public class TankHeadControl : MonoBehaviour
     private void SetCannon()
     {
         Instantiate(cannonball, Cannnon.transform.position, transform.rotation);
+        Instantiate(CannonSpark, CannonSparkPos.position, transform.rotation);
         timer_cannon = 0;
     }
 }
