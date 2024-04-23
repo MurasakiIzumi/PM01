@@ -33,7 +33,7 @@ public class ControlLaserGun : MonoBehaviour
 
     void Start()
     {
-        ChangeState(new LaserGun_Idle(this));
+        ChangeState(new LaserGun_Up(this));
 
         firedis = new Vector3(1.6f, 2.18f, 0);
         isfired=false;

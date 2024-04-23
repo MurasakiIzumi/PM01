@@ -32,7 +32,7 @@ public class ControlRocketLancher : MonoBehaviour
 
     void Start()
     {
-        ChangeState(new RocketLancher_Idle(this));
+        ChangeState(new RocketLancher_Up(this));
 
         firedis = new Vector3(-0.8f, 2.3f, 0);
 
