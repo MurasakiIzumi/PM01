@@ -9,11 +9,13 @@ using static UnityEngine.EventSystems.EventTrigger;
 public class ControlTestEnemy : MonoBehaviour
 {
     public int defultdir;
-    public int hp;
+    public int hpmax;
+    private int hp;
     public float speed;
     public float rotspd;
 
     [Header("爆発")] public GameObject explosion;
+    [Header("ダメージ煙")] public GameObject Smoke;
 
     [Header("行動範囲")] public Vector3 Max;
 
@@ -34,6 +36,7 @@ public class ControlTestEnemy : MonoBehaviour
         ChangeState(new TestEnemy_Idle(this));
 
         dir = defultdir;
+        hp = hpmax;
     }
 
     void Update()
@@ -68,6 +71,15 @@ public class ControlTestEnemy : MonoBehaviour
         {
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
+        }
+
+        if (hp <= hpmax / 3)
+        {
+            Smoke.SetActive(true);
+        }
+        else
+        {
+            Smoke.SetActive(false);
         }
     }
 
