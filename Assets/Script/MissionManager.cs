@@ -19,12 +19,14 @@ public class MissionManager : MonoBehaviour
     [HideInInspector] public bool CanMove;
     [HideInInspector] public bool isMissionComplete;
     [HideInInspector] public bool isTimeOut;
+    [HideInInspector] public int whatStage;
 
     private float timer_Kinetic;
     private float Relord_Kinetic;
 
     void Start()
     {
+        Targetnum = 0;
         timer.TotalTime= TotalTime;
         CanMove = false;
         isMissionComplete = false;
@@ -32,6 +34,11 @@ public class MissionManager : MonoBehaviour
 
         timer_Kinetic=0;
         Relord_Kinetic = 2.0f;
+
+        Scene scene;
+        scene = SceneManager.GetActiveScene();
+
+        whatStage = scene.buildIndex - 1;
     }
 
 
@@ -106,10 +113,13 @@ public class MissionManager : MonoBehaviour
 
     private void CheckMission()
     {
-        if (Targetnum <= 0)
+        if (CanMove)
         {
-            isMissionComplete = true;
-            UImanager.isMissionComplete = true;
+            if (Targetnum <= 0)
+            {
+                isMissionComplete = true;
+                UImanager.isMissionComplete = true;
+            }
         }
     }
 

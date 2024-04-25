@@ -26,14 +26,11 @@ public class ControlTestTarget : MonoBehaviour
 
     void Start()
     {
-        missionManager.Targetnum++;
+        StartCoroutine("TargetIN");
     }
 
     void Update()
     {
-        // 現在のステート
-        //currentState?.Execute();
-
         HPCheck();
     }
 
@@ -92,6 +89,16 @@ public class ControlTestTarget : MonoBehaviour
         if (other.gameObject.tag == "Destroy(3rd)")
         {
             hp = -1;
+        }
+    }
+
+    IEnumerator TargetIN()
+    {
+        yield return new WaitForEndOfFrame();
+
+        if (missionManager.whatStage == 1)
+        {
+            missionManager.Targetnum++;
         }
     }
 }
