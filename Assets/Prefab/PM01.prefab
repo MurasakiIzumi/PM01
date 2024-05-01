@@ -376,6 +376,7 @@ GameObject:
   - component: {fileID: 6969840953971288318}
   - component: {fileID: 9124674464291477002}
   - component: {fileID: 3510696447563052522}
+  - component: {fileID: 3241829987815922831}
   m_Layer: 0
   m_Name: BeaconLancher
   m_TagString: Untagged
@@ -471,6 +472,25 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3241829987815922831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4983281450504624523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b41c43773b6ac34b8a8f97e3ae80bf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 8131969228128622136}
+  beacon: {fileID: 5676680579455670260, guid: 97f851db496983c409f9d7f4a79e7482, type: 3}
+  spriteRenderer: {fileID: 0}
+  animator: {fileID: 0}
+  isfired: 0
+  timer_nofire: 0
+  threshold_nofire: 0
 --- !u!1 &5170416796036606408
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,8 +599,13 @@ MonoBehaviour:
   part_body: {fileID: 5731638115380734725}
   part_frontarm: {fileID: 2313675419670070976}
   part_lasergun: {fileID: 3336794855538708060}
+  part_beaconlancher: {fileID: 3241829987815922831}
   part_leg: {fileID: 9045462890821361333}
   part_rocketlancher: {fileID: 3124514862183802003}
+  ArmR: 1
+  ArmL: 1
+  shoulderR: 1
+  shoulderL: 1
   hpbar: {fileID: 0}
   powerbar: {fileID: 0}
   AmmoRight: {fileID: 0}

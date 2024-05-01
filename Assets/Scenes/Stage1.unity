@@ -1705,6 +1705,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 475008856048712914}
     - target: {fileID: 8131969228128622136, guid: 410c9936cdbf54b4b958cf0bf3c08670, type: 3}
+      propertyPath: shoulderL
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8131969228128622136, guid: 410c9936cdbf54b4b958cf0bf3c08670, type: 3}
       propertyPath: AmmoRocket
       value: 
       objectReference: {fileID: 475008856048712912}

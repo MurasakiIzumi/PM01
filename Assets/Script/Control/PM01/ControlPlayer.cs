@@ -17,8 +17,15 @@ public class ControlPlayer : MonoBehaviour
     public ControlBody part_body;
     public ControlFrontArm part_frontarm;
     public ControlLaserGun part_lasergun;
+    public ControlBeaconLancher part_beaconlancher;
     public ControlLeg part_leg;
     public ControlRocketLancher part_rocketlancher;
+    //public ControlMortarGun part_mortargun;
+
+    public int ArmR = 1;
+    public int ArmL = 1;
+    public int shoulderR = 1;
+    public int shoulderL = 1;
 
     [Header("UI関連")]
     public Image hpbar;
@@ -73,6 +80,9 @@ public class ControlPlayer : MonoBehaviour
         ammoright = ammobulletMax;
         ammoleft = ammobulletMax;
         ammorocket = ammorocketMax;
+
+        ArmWeaponCheck();
+        ShoulderWeaponCheck();
     }
 
     void Update()
@@ -165,6 +175,7 @@ public class ControlPlayer : MonoBehaviour
                 part_body.spriteRenderer.flipX = true;
                 part_frontarm.spriteRenderer.flipX = true;
                 part_lasergun.spriteRenderer.flipX = true;
+                part_beaconlancher.spriteRenderer.flipX = true;
                 part_leg.spriteRenderer.flipX = true;
                 part_rocketlancher.spriteRenderer.flipX = true;
                 flipx = true;
@@ -180,6 +191,7 @@ public class ControlPlayer : MonoBehaviour
                 part_body.spriteRenderer.flipX = false;
                 part_frontarm.spriteRenderer.flipX = false;
                 part_lasergun.spriteRenderer.flipX = false;
+                part_beaconlancher.spriteRenderer.flipX = false;
                 part_leg.spriteRenderer.flipX = false;
                 part_rocketlancher.spriteRenderer.flipX = false;
                 flipx = false;
@@ -195,6 +207,58 @@ public class ControlPlayer : MonoBehaviour
         newvec.x *= -1.0f;
 
         return newvec;
+    }
+
+    private void ArmWeaponCheck()
+    {
+        switch (ArmR)
+        {
+            case 0:
+                part_frontarm.gameObject.SetActive(false);
+                break;
+            case 1:
+                break;
+        }
+
+        switch (ArmL)
+        {
+            case 0:
+                part_backarm.gameObject.SetActive(false);
+                break;
+            case 1:
+                break;
+        }
+    }
+
+    private void ShoulderWeaponCheck()
+    {
+        switch (shoulderR)
+        {
+            case 0:
+                part_rocketlancher.gameObject.SetActive(false);
+                
+                break;
+            case 1:
+
+                break;
+            case 2:
+                part_rocketlancher.gameObject.SetActive(false);
+                break;
+        }
+
+        switch (shoulderL)
+        {
+            case 0:
+                part_lasergun.gameObject.SetActive(false);
+                part_beaconlancher.gameObject.SetActive(false);
+                break;
+            case 1:
+                part_beaconlancher.gameObject.SetActive(false);
+                break;
+            case 2:
+                part_lasergun.gameObject.SetActive(false);
+                break;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
