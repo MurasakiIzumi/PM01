@@ -273,7 +273,7 @@ public class ControlPlayer : MonoBehaviour
                 break;
             case 2:
                 part_rocketlancher.gameObject.SetActive(false);
-                BackAmmoName.text = "HE Shell";
+                BackAmmoName.text = "VT Shell";
                 break;
         }
 

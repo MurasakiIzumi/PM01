@@ -18,10 +18,12 @@ public class MortarGun_Idle : IState
         if (mortargun.Mode)
         {
             mortargun.SetAnimation("Idle2");
+            mortargun.player.BackAmmoName.text = "HE Shell";
         }
         else
         {
             mortargun.SetAnimation("Idle1");
+            mortargun.player.BackAmmoName.text = "VT Shell";
         }
     }
 
@@ -47,11 +49,13 @@ public class MortarGun_Idle : IState
             {
                 mortargun.Mode = false;
                 mortargun.SetAnimation("Idle1");
+                mortargun.player.BackAmmoName.text = "VT Shell";
             }
             else
             {
                 mortargun.Mode = true;
                 mortargun.SetAnimation("Idle2");
+                mortargun.player.BackAmmoName.text = "HE Shell";
             }
         }
     }
