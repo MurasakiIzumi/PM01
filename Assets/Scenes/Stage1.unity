@@ -802,6 +802,7 @@ MonoBehaviour:
   CanMove: 0
   isMissionComplete: 0
   isTimeOut: 0
+  whatStage: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
