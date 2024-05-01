@@ -1709,9 +1709,25 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8131969228128622136, guid: 410c9936cdbf54b4b958cf0bf3c08670, type: 3}
+      propertyPath: shoulderR
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8131969228128622136, guid: 410c9936cdbf54b4b958cf0bf3c08670, type: 3}
       propertyPath: AmmoRocket
       value: 
       objectReference: {fileID: 475008856048712912}
+    - target: {fileID: 8131969228128622136, guid: 410c9936cdbf54b4b958cf0bf3c08670, type: 3}
+      propertyPath: Ammoshoulder
+      value: 
+      objectReference: {fileID: 475008856048712912}
+    - target: {fileID: 8131969228128622136, guid: 410c9936cdbf54b4b958cf0bf3c08670, type: 3}
+      propertyPath: BackAmmoName
+      value: 
+      objectReference: {fileID: 475008856048712915}
+    - target: {fileID: 8131969228128622136, guid: 410c9936cdbf54b4b958cf0bf3c08670, type: 3}
+      propertyPath: ammomortarMax
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1983,6 +1999,17 @@ MonoBehaviour:
 --- !u!114 &475008856048712914 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6199267482653660551, guid: 9f470215108548b44986e8e7af2dab23, type: 3}
+  m_PrefabInstance: {fileID: 475008856048712911}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &475008856048712915 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4965740940039018106, guid: 9f470215108548b44986e8e7af2dab23, type: 3}
   m_PrefabInstance: {fileID: 475008856048712911}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}

@@ -32,7 +32,8 @@ public class ControlPlayer : MonoBehaviour
     public Image powerbar;
     public Text AmmoRight;
     public Text AmmoLeft;
-    public Text AmmoRocket;
+    public Text BackAmmoName;
+    public Text Ammoshoulder;
 
     [Header("跳躍高さ")] public float jumphigh;
     [Header("移動スピード")] public float move_speed;                                    // 移動速度
@@ -49,10 +50,12 @@ public class ControlPlayer : MonoBehaviour
     [Header("Ammo")]
     public int ammobulletMax;
     public int ammorocketMax;
+    public int ammomortarMax;
 
     [HideInInspector] public int ammoright;
     [HideInInspector] public int ammoleft;
     [HideInInspector] public int ammorocket;
+    [HideInInspector] public int ammomortar;
 
     [HideInInspector] public int dir;                           // 向き（2上 4左 8下 6右）
     [HideInInspector] public bool canRun;
@@ -80,6 +83,7 @@ public class ControlPlayer : MonoBehaviour
         ammoright = ammobulletMax;
         ammoleft = ammobulletMax;
         ammorocket = ammorocketMax;
+        ammomortar = ammomortarMax;
 
         ArmWeaponCheck();
         ShoulderWeaponCheck();
@@ -146,22 +150,45 @@ public class ControlPlayer : MonoBehaviour
             AmmoLeft.text = "Out";
         }
 
-        if (ammorocket > 0)
+        if (shoulderR == 1)
         {
-            if (ammorocket <= ammorocketMax / 4)
+            if (ammorocket > 0)
             {
-                AmmoRocket.color = Color.red;
-            }
-            else if (ammorocket <= ammorocketMax / 3)
-            {
-                AmmoRocket.color = Color.yellow;
-            }
+                if (ammorocket <= ammorocketMax / 4)
+                {
+                    Ammoshoulder.color = Color.red;
+                }
+                else if (ammorocket <= ammorocketMax / 3)
+                {
+                    Ammoshoulder.color = Color.yellow;
+                }
 
-            AmmoRocket.text = "" + ammorocket;
+                Ammoshoulder.text = "" + ammorocket;
+            }
+            else
+            {
+                Ammoshoulder.text = "Out";
+            }
         }
-        else 
+        else if (shoulderR == 2)
         {
-            AmmoRocket.text = "Out";
+            if (ammomortar > 0)
+            {
+                if (ammomortar <= ammomortarMax / 4)
+                {
+                    Ammoshoulder.color = Color.red;
+                }
+                else if (ammomortar <= ammomortarMax / 3)
+                {
+                    Ammoshoulder.color = Color.yellow;
+                }
+
+                Ammoshoulder.text = "" + ammomortar;
+            }
+            else
+            {
+                Ammoshoulder.text = "Out";
+            }
         }
     }
 
@@ -242,9 +269,11 @@ public class ControlPlayer : MonoBehaviour
                 break;
             case 1:
                 part_mortargun.gameObject.SetActive(false);
+                BackAmmoName.text = "LACM";
                 break;
             case 2:
                 part_rocketlancher.gameObject.SetActive(false);
+                BackAmmoName.text = "HE Shell";
                 break;
         }
 

@@ -15,7 +15,14 @@ public class MortarGun_Idle : IState
 
     public void Enter()
     {
-        mortargun.SetAnimation("Idle1");
+        if (mortargun.Mode)
+        {
+            mortargun.SetAnimation("Idle2");
+        }
+        else
+        {
+            mortargun.SetAnimation("Idle1");
+        }
     }
 
     public void Execute()
@@ -30,6 +37,21 @@ public class MortarGun_Idle : IState
             {
                 mortargun.timer_nofire = 0.0f;
                 mortargun.ChangeState(new MortarGun_Shoot(mortargun));
+            }
+        }
+
+        // éÀåÇépê®ïœä∑
+        if (Input.GetKeyUp(KeyCode.I))
+        {
+            if (mortargun.Mode)
+            {
+                mortargun.Mode = false;
+                mortargun.SetAnimation("Idle1");
+            }
+            else
+            {
+                mortargun.Mode = true;
+                mortargun.SetAnimation("Idle2");
             }
         }
     }

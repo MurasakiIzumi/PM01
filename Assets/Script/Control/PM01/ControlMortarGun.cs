@@ -96,8 +96,10 @@ public class ControlMortarGun : MonoBehaviour
             firepos = player.transform.position + firedis_type1;
         }
         
-        Instantiate(mortar, firepos, localAngle);
+        GameObject newMortar = Instantiate(mortar, firepos, localAngle);
+        newMortar.GetComponent<MortarControl>().dir = player.dir;
+        newMortar.GetComponent<MortarControl>().Mode = Mode;
 
-        player.ammorocket--;
+        player.ammomortar--;
     }
 }

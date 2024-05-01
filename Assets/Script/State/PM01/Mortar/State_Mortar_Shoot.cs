@@ -16,7 +16,15 @@ public class MortarGun_Shoot : IState
 
     public void Enter()
     {
-        mortargun.SetAnimation("Shoot1");
+        if (mortargun.Mode)
+        {
+            mortargun.SetAnimation("Shoot2");
+        }
+        else
+        {
+            mortargun.SetAnimation("Shoot1");
+        }
+        
         isfire = false;
     }
 
