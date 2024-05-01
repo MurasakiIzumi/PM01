@@ -20,7 +20,7 @@ public class ControlPlayer : MonoBehaviour
     public ControlBeaconLancher part_beaconlancher;
     public ControlLeg part_leg;
     public ControlRocketLancher part_rocketlancher;
-    //public ControlMortarGun part_mortargun;
+    public ControlMortarGun part_mortargun;
 
     public int ArmR = 1;
     public int ArmL = 1;
@@ -178,6 +178,7 @@ public class ControlPlayer : MonoBehaviour
                 part_beaconlancher.spriteRenderer.flipX = true;
                 part_leg.spriteRenderer.flipX = true;
                 part_rocketlancher.spriteRenderer.flipX = true;
+                part_mortargun.spriteRenderer.flipX = true;
                 flipx = true;
 
                 this.GetComponent<BoxCollider>().center = ColliderFlip(this.GetComponent<BoxCollider>().center);
@@ -194,6 +195,7 @@ public class ControlPlayer : MonoBehaviour
                 part_beaconlancher.spriteRenderer.flipX = false;
                 part_leg.spriteRenderer.flipX = false;
                 part_rocketlancher.spriteRenderer.flipX = false;
+                part_mortargun.spriteRenderer.flipX = false;
                 flipx = false;
 
                 this.GetComponent<BoxCollider>().center = ColliderFlip(this.GetComponent<BoxCollider>().center);
@@ -236,10 +238,10 @@ public class ControlPlayer : MonoBehaviour
         {
             case 0:
                 part_rocketlancher.gameObject.SetActive(false);
-                
+                part_mortargun.gameObject.SetActive(false);
                 break;
             case 1:
-
+                part_mortargun.gameObject.SetActive(false);
                 break;
             case 2:
                 part_rocketlancher.gameObject.SetActive(false);
