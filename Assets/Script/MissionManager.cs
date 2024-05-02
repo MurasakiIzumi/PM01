@@ -24,6 +24,10 @@ public class MissionManager : MonoBehaviour
     private float timer_Kinetic;
     private float Relord_Kinetic;
 
+    private void Awake()
+    {
+        Pm01DataLoad();
+    }
     void Start()
     {
         Targetnum = 0;
@@ -169,6 +173,26 @@ public class MissionManager : MonoBehaviour
 
         Instantiate(KineticObj, TargetPos, Quaternion.identity);
     }
+
+    private void Pm01DataLoad()
+    {
+        GameObject Messager = GameObject.Find("DataMessager");
+
+        if (!Messager)
+        {
+            return;
+        }
+
+        DataMessager data = Messager.GetComponent<DataMessager>();
+        ControlPlayer player=Player.GetComponent<ControlPlayer>();
+
+        player.ArmR = data.Arm1;
+        player.ArmL = data.Arm2;
+        player.shoulderR = data.Shoulder1;
+        player.shoulderL = data.Shoulder2;
+
+    }
+
 
     IEnumerator UIStart()
     {
